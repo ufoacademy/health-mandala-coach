@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#2D6A4F">
+<title>건강만다라 | 코치용 진단 도구</title>
+<!-- 카카오톡 미리보기 (OG 태그) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="🌿 건강만다라 만성질환 예방 진단 (코치용)">
+<meta property="og:description" content="당뇨·고혈압·비만을 유발하는 내 삶의 최약점을 찾아드립니다 | 8영역 64문항 근거 기반 진단">
+<meta property="og:image" content="https://ufoacademy.github.io/health-mandala/preview.jpg">
+<meta name="description" content="만성질환 예방을 위한 8가지 건강 영역을 근거 기반 질문으로 정밀 진단합니다.">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark:#2D6A4F; --green-mid:#52B788; --green-light:#D8F3DC;
+  --green-pale:#F0FAF3; --amber:#E07B39; --amber-light:#FFF3E0;
+  --red:#DC2626; --orange:#EA580C; --blue:#1D4ED8;
+  --text-dark:#1B2E22; --text-mid:#4A5E52; --text-light:#8AA693;
+  --white:#FFFFFF; --bg:#F7FBF8;
+  --shadow:0 4px 24px rgba(45,106,79,.10);
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text-dark);min-height:100vh;}
+
+/* ── PROGRESS BAR ── */
+#progress-bar{position:fixed;top:0;left:0;height:5px;
+  background:linear-gradient(90deg,var(--green-mid),var(--amber));
+  width:0%;transition:width .4s ease;z-index:999;}
+
+/* ── HEADER ── */
+header{background:var(--green-dark);color:#fff;padding:16px 20px;text-align:center;
+  position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.2);}
+header .brand{font-size:12px;opacity:.7;letter-spacing:2px;margin-bottom:3px;}
+header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
+
+/* ── SCREENS ── */
+.screen{display:none;animation:fadeUp .45s ease;}
+.screen.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.container{max-width:700px;margin:0 auto;padding:24px 16px 80px;}
+
+/* ── INTRO ── */
+.intro-hero{background:linear-gradient(135deg,var(--green-dark),#1a5c3a);
+  border-radius:var(--radius);padding:36px 24px;color:#fff;text-align:center;margin-bottom:24px;}
+.mandala-icon{width:76px;height:76px;margin:0 auto 18px;
+  background:rgba(255,255,255,.15);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:38px;}
+.intro-hero h2{font-family:'Noto Serif KR',serif;font-size:26px;font-weight:700;margin-bottom:10px;}
+.intro-hero p{font-size:14px;opacity:.9;line-height:1.8;}
+.intro-badge{display:inline-block;margin-top:14px;background:rgba(255,255,255,.2);
+  border-radius:20px;padding:6px 18px;font-size:13px;font-weight:700;border:1px solid rgba(255,255,255,.3);}
+
+.area-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px;}
+.area-card{background:#fff;border-radius:12px;padding:12px 6px;text-align:center;
+  box-shadow:var(--shadow);border-top:3px solid var(--green-mid);}
+.area-card .icon{font-size:22px;margin-bottom:5px;}
+.area-card .name{font-size:11px;font-weight:700;color:var(--green-dark);}
+.area-card .sub{font-size:9px;color:var(--text-light);margin-top:2px;}
+
+.info-box{background:#fff;border-radius:var(--radius);padding:18px;
+  box-shadow:var(--shadow);margin-bottom:20px;}
+.info-box h3{font-size:14px;color:var(--green-dark);font-weight:700;margin-bottom:12px;}
+.info-box .focus-text{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:12px;}
+
+.score-legend{display:flex;gap:6px;flex-wrap:wrap;}
+.score-badge{flex:1;min-width:100px;padding:10px 8px;border-radius:10px;text-align:center;font-size:11px;}
+.score-badge .num{font-size:20px;font-weight:900;}
+.s1{background:#FEE2E2;color:#991B1B;}
+.s2{background:#FEF3C7;color:#92400E;}
+.s3{background:#D1FAE5;color:#065F46;}
+.s4{background:#DBEAFE;color:#1E40AF;}
+
+.btn-start{width:100%;padding:18px;border:none;border-radius:var(--radius);
+  background:linear-gradient(135deg,var(--green-dark),var(--green-mid));
+  color:#fff;font-size:17px;font-weight:700;cursor:pointer;
+  box-shadow:0 6px 20px rgba(45,106,79,.35);
+  transition:transform .2s,box-shadow .2s;font-family:'Noto Sans KR',sans-serif;}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(45,106,79,.4);}
+.time-note{text-align:center;font-size:12px;color:var(--text-light);margin-top:8px;}
+.btn-quick-cta{width:100%;padding:15px;border:2px solid var(--green-mid);border-radius:var(--radius);
+  background:#fff;color:var(--green-dark);font-size:14px;font-weight:700;cursor:pointer;
+  font-family:'Noto Sans KR',sans-serif;transition:all .2s;margin-top:10px;
+  display:flex;align-items:center;justify-content:center;gap:6px;}
+.btn-quick-cta:hover{background:var(--green-pale);transform:translateY(-1px);}
+.quick-cta-divider{text-align:center;font-size:11px;color:var(--text-light);
+  margin:14px 0 4px;position:relative;}
+.quick-cta-divider::before,.quick-cta-divider::after{content:'';
+  position:absolute;top:50%;width:38%;height:1px;background:#E5EDE8;}
+.quick-cta-divider::before{left:0;}
+.quick-cta-divider::after{right:0;}
+.quick-cta-cards{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
+.quick-cta-item{display:flex;align-items:center;gap:12px;padding:14px 16px;
+  border-radius:14px;text-decoration:none;transition:all .2s;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+.quick-cta-item:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.13);}
+.qc-1{background:linear-gradient(135deg,var(--green-dark),#1A5C3A);}
+.qc-2{background:linear-gradient(135deg,#1A6B8A,#0E4D6B);}
+.qc-3{background:linear-gradient(135deg,var(--amber),#C45E1A);}
+.quick-cta-item .qc-icon{font-size:20px;width:36px;height:36px;border-radius:10px;
+  background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.quick-cta-item .qc-text{flex:1;color:#fff;}
+.quick-cta-item .qc-text span{font-size:9px;opacity:.75;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:2px;}
+.quick-cta-item .qc-text strong{font-size:13px;font-weight:700;}
+.quick-cta-item .qc-arrow{color:#fff;opacity:.65;font-size:16px;}
+
+/* ── QUIZ ── */
+.quiz-area-header{display:flex;align-items:center;gap:12px;
+  background:var(--green-dark);color:#fff;
+  border-radius:var(--radius);padding:16px 18px;margin-bottom:16px;}
+.quiz-area-icon{width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.area-info h3{font-size:16px;font-weight:700;}
+.area-info p{font-size:11px;opacity:.8;margin-top:2px;line-height:1.5;}
+.area-focus{font-size:11px;opacity:.7;margin-top:4px;font-style:italic;}
+
+.quiz-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.quiz-progress-text{font-size:12px;color:var(--text-light);}
+.quiz-answered-count{font-size:12px;color:var(--green-mid);font-weight:700;}
+
+/* ── SUB-DIMENSION GROUP ── */
+.sub-dim-group{margin-bottom:18px;}
+.sub-dim-label{display:flex;align-items:center;gap:8px;
+  background:var(--green-pale);border-radius:10px;padding:8px 14px;
+  margin-bottom:10px;border-left:3px solid var(--green-mid);}
+.sub-dim-label .sdl-letter{width:22px;height:22px;background:var(--green-dark);
+  color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;}
+.sub-dim-label .sdl-text{font-size:12px;font-weight:700;color:var(--green-dark);}
+.sub-dim-label .sdl-ref{font-size:10px;color:var(--text-light);margin-left:auto;cursor:pointer;
+  text-decoration:underline;text-underline-offset:2px;}
+
+.question-card{background:#fff;border-radius:12px;padding:16px;
+  box-shadow:var(--shadow);margin-bottom:10px;border-left:4px solid var(--green-light);transition:border-color .2s;}
+.question-card.answered{border-left-color:var(--green-mid);}
+.q-text{font-size:13px;color:var(--text-dark);line-height:1.65;margin-bottom:11px;font-weight:500;}
+.q-num{color:var(--green-mid);font-weight:700;margin-right:5px;}
+
+.radio-group{display:flex;gap:5px;}
+.radio-group label{flex:1;text-align:center;cursor:pointer;}
+.radio-group input[type=radio]{display:none;}
+.radio-btn{display:block;padding:8px 4px;border-radius:8px;
+  border:2px solid #E5EDE8;font-size:11px;color:var(--text-mid);
+  transition:all .2s;background:#fff;line-height:1.3;}
+.radio-group input[type=radio]:checked + .radio-btn{
+  background:var(--green-dark);border-color:var(--green-dark);color:#fff;font-weight:700;}
+
+.btn-nav{display:flex;gap:10px;margin-top:22px;}
+.btn-prev,.btn-next{flex:1;padding:14px;border:none;border-radius:var(--radius);
+  font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;}
+.btn-prev{background:#fff;color:var(--text-mid);border:2px solid #E5EDE8;}
+.btn-next{background:var(--green-dark);color:#fff;box-shadow:0 4px 14px rgba(45,106,79,.3);}
+.btn-next:hover{background:var(--green-mid);}
+.btn-next:disabled{background:#ccc;box-shadow:none;cursor:not-allowed;}
+
+/* ── RESULT ── */
+.result-hero{background:linear-gradient(135deg,var(--green-dark),#1A4731);
+  border-radius:var(--radius);padding:26px 22px;color:#fff;text-align:center;margin-bottom:22px;}
+.total-score{font-size:60px;font-weight:900;line-height:1;}
+.total-label{font-size:13px;opacity:.65;margin-top:4px;}
+.result-grade{display:inline-block;margin-top:12px;
+  background:rgba(255,255,255,.18);border-radius:20px;
+  padding:6px 18px;font-size:14px;font-weight:700;}
+.result-hero .result-msg{font-size:13px;opacity:.85;margin-top:10px;line-height:1.7;}
+
+.name-input-box{background:#fff;border-radius:var(--radius);padding:18px;
+  box-shadow:var(--shadow);margin-bottom:18px;}
+.name-input-box label{font-size:13px;font-weight:700;color:var(--green-dark);display:block;margin-bottom:7px;}
+.name-input-box input{width:100%;padding:11px 14px;border:2px solid #E5EDE8;
+  border-radius:10px;font-size:14px;font-family:'Noto Sans KR',sans-serif;
+  outline:none;transition:border-color .2s;}
+.name-input-box input:focus{border-color:var(--green-mid);}
+
+/* ── RADAR ── */
+.chart-box{background:#fff;border-radius:var(--radius);padding:22px;
+  box-shadow:var(--shadow);margin-bottom:18px;text-align:center;}
+.chart-box h3{font-size:14px;font-weight:700;color:var(--green-dark);margin-bottom:14px;}
+#radarCanvas{max-width:320px;width:100%;}
+
+/* ── WEAK RANKING ── */
+.weak-rank-section{background:#fff;border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;margin-bottom:18px;}
+.weak-rank-header{background:linear-gradient(135deg,#7C3AED,#5B21B6);
+  color:#fff;padding:14px 18px;}
+.weak-rank-header h3{font-size:14px;font-weight:700;margin-bottom:2px;}
+.weak-rank-header p{font-size:11px;opacity:.8;}
+.weak-rank-items{padding:16px;}
+.rank-item{display:flex;align-items:flex-start;gap:12px;
+  padding:12px;border-radius:12px;margin-bottom:10px;}
+.rank-item:last-child{margin-bottom:0;}
+.rank-1{background:#FEF2F2;border:2px solid #FECACA;}
+.rank-2{background:#FFF7ED;border:2px solid #FED7AA;}
+.rank-3{background:#FFF9C4;border:2px solid #FDE68A;}
+.rank-badge{width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;}
+.rank-1 .rank-badge{background:#EF4444;color:#fff;}
+.rank-2 .rank-badge{background:#F97316;color:#fff;}
+.rank-3 .rank-badge{background:#EAB308;color:#fff;}
+.rank-content h4{font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;}
+.rank-content .rank-score{font-size:11px;color:var(--text-mid);margin-bottom:5px;}
+.rank-content .rank-tip{font-size:12px;color:var(--text-mid);line-height:1.6;
+  background:rgba(255,255,255,.7);border-radius:8px;padding:8px 10px;margin-top:5px;}
+
+/* ── SCORE TABLE ── */
+.score-table{background:#fff;border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;margin-bottom:18px;}
+.score-table-header{background:var(--green-dark);color:#fff;
+  padding:13px 18px;font-size:13px;font-weight:700;}
+.score-row{padding:12px 18px;border-bottom:1px solid #F0F4F1;}
+.score-row:last-child{border-bottom:none;}
+.score-row-top{display:flex;align-items:center;margin-bottom:8px;}
+.score-row .area-label{flex:1;font-size:13px;font-weight:700;}
+.score-row .score-pct{font-size:12px;font-weight:700;width:48px;text-align:right;}
+.area-bar-wrap{height:8px;background:#F0F4F1;border-radius:4px;margin-bottom:6px;}
+.area-bar{height:100%;border-radius:4px;transition:width 1s ease;}
+.sub-bars{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
+.sub-bar-item{text-align:center;}
+.sub-bar-item .sb-label{font-size:9px;color:var(--text-light);margin-bottom:3px;}
+.sub-bar-item .sb-fill-wrap{height:5px;background:#F0F4F1;border-radius:3px;}
+.sub-bar-item .sb-fill{height:100%;border-radius:3px;transition:width 1s ease;}
+.risk-badge{display:inline-block;padding:3px 9px;border-radius:12px;font-size:10px;font-weight:700;margin-left:6px;}
+.risk-high{background:#FEE2E2;color:#991B1B;}
+.risk-warn{background:#FEF3C7;color:#92400E;}
+.risk-low{background:#D1FAE5;color:#065F46;}
+.risk-best{background:#DBEAFE;color:#1E40AF;}
+
+/* ── ACTION PLAN ── */
+.action-section{background:#fff;border-radius:var(--radius);
+  padding:20px;box-shadow:var(--shadow);margin-bottom:18px;}
+.action-section h3{font-size:14px;font-weight:700;color:var(--amber);margin-bottom:14px;}
+.action-item{display:flex;align-items:flex-start;gap:10px;
+  padding:11px;background:var(--amber-light);border-radius:10px;margin-bottom:8px;}
+.action-item:last-child{margin-bottom:0;}
+.ai-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.ai-text h4{font-size:12px;font-weight:700;color:var(--text-dark);margin-bottom:3px;}
+.ai-text p{font-size:11px;color:var(--text-mid);line-height:1.6;}
+
+/* ── EVIDENCE ── */
+.evidence-section{background:#fff;border-radius:var(--radius);
+  padding:18px;box-shadow:var(--shadow);margin-bottom:18px;}
+.evidence-toggle{display:flex;align-items:center;justify-content:space-between;cursor:pointer;}
+.evidence-toggle h3{font-size:13px;font-weight:700;color:var(--text-mid);}
+.evidence-toggle .ev-arrow{font-size:14px;color:var(--text-light);transition:transform .3s;}
+.evidence-toggle.open .ev-arrow{transform:rotate(180deg);}
+.evidence-content{display:none;margin-top:14px;}
+.evidence-content.show{display:block;}
+.ev-area-block{margin-bottom:14px;}
+.ev-area-block h4{font-size:12px;font-weight:700;color:var(--green-dark);margin-bottom:6px;
+  display:flex;align-items:center;gap:6px;}
+.ev-ref{font-size:11px;color:var(--text-mid);line-height:1.7;
+  padding:6px 10px;background:var(--green-pale);border-radius:8px;margin-bottom:3px;}
+.ev-ref strong{color:var(--green-dark);}
+
+/* ── CTA ── */
+.cta-section{margin-bottom:40px;}
+.cta-title{text-align:center;margin-bottom:16px;}
+.cta-title h3{font-family:'Noto Serif KR',serif;font-size:18px;color:var(--green-dark);font-weight:700;}
+.cta-title p{font-size:12px;color:var(--text-mid);margin-top:5px;}
+.cta-cards{display:flex;flex-direction:column;gap:12px;}
+.cta-card{display:flex;align-items:center;gap:14px;padding:18px;border-radius:var(--radius);
+  text-decoration:none;transition:all .25s;box-shadow:var(--shadow);}
+.cta-card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.15);}
+.cta-1{background:linear-gradient(135deg,var(--green-dark),#1A5C3A);}
+.cta-2{background:linear-gradient(135deg,#1A6B8A,#0E4D6B);}
+.cta-3{background:linear-gradient(135deg,var(--amber),#C45E1A);}
+.cta-icon{width:48px;height:48px;border-radius:12px;
+  background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
+.cta-text{flex:1;color:#fff;}
+.cta-tag{font-size:10px;opacity:.75;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:3px;}
+.cta-text h4{font-size:15px;font-weight:700;}
+.cta-text p{font-size:11px;opacity:.82;margin-top:2px;line-height:1.5;}
+.cta-arrow{color:#fff;opacity:.65;font-size:18px;}
+
+.share-btn{width:100%;padding:16px;border:none;border-radius:var(--radius);
+  background:linear-gradient(135deg,#FEE500,#F5D800);
+  color:#3C1E1E;font-size:15px;font-weight:700;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 4px 14px rgba(254,229,0,.4);
+  font-family:'Noto Sans KR',sans-serif;margin-bottom:10px;transition:all .2s;}
+.share-btn:hover{transform:translateY(-2px);}
+.share-link-btn{width:100%;padding:14px;border:2px solid var(--green-mid);border-radius:var(--radius);
+  background:#fff;color:var(--green-dark);font-size:14px;font-weight:700;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:'Noto Sans KR',sans-serif;margin-bottom:18px;transition:all .2s;}
+.footer-note{text-align:center;font-size:11px;color:var(--text-light);
+  padding-top:18px;border-top:1px solid #E5EDE8;}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;
+  align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.show{display:flex;}
+.modal-box{background:#fff;border-radius:var(--radius);padding:24px;max-width:480px;width:100%;
+  max-height:80vh;overflow-y:auto;}
+.modal-box h3{font-size:15px;font-weight:700;color:var(--green-dark);margin-bottom:12px;}
+.modal-box p{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:10px;}
+.modal-box .close-btn{width:100%;padding:12px;border:none;border-radius:10px;
+  background:var(--green-dark);color:#fff;font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;
+  font-family:'Noto Sans KR',sans-serif;}
+
+/* ── LOADING ── */
+.loading-overlay{display:none;position:fixed;inset:0;
+  background:rgba(45,106,79,.92);z-index:999;
+  flex-direction:column;align-items:center;justify-content:center;color:#fff;}
+.loading-overlay.show{display:flex;}
+.spinner{width:48px;height:48px;border:4px solid rgba(255,255,255,.3);
+  border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;margin-bottom:14px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── MOBILE FULL OPTIMIZATION ── */
+@media(max-width:480px){
+  .container{padding:16px 12px 100px;}
+  header{padding:12px 16px;}
+  header .brand{font-size:11px;}
+  header h1{font-size:15px;}
+  .intro-hero{padding:28px 18px;}
+  .intro-hero h2{font-size:21px;}
+  .intro-hero p{font-size:13px;}
+  .mandala-icon{width:64px;height:64px;font-size:32px;}
+  .intro-badge{font-size:11px;padding:5px 14px;}
+  .area-grid{grid-template-columns:repeat(4,1fr);gap:5px;}
+  .area-card{padding:10px 4px;}
+  .area-card .icon{font-size:18px;}
+  .area-card .name{font-size:10px;}
+  .area-card .sub{font-size:8px;}
+  .score-badge{min-width:60px;padding:8px 4px;}
+  .score-badge .num{font-size:17px;}
+  .btn-start{padding:20px;font-size:16px;border-radius:14px;}
+  .quiz-area-header{padding:14px;}
+  .area-info h3{font-size:15px;}
+  .area-info p{font-size:11px;}
+  .q-text{font-size:13px;line-height:1.7;}
+  .radio-btn{padding:11px 3px;font-size:10px;min-height:44px;
+    display:flex;align-items:center;justify-content:center;}
+  .radio-group{gap:4px;}
+  .btn-prev,.btn-next{padding:16px;font-size:15px;min-height:52px;}
+  .btn-nav{gap:8px;margin-top:20px;
+    position:sticky;bottom:0;background:var(--bg);
+    padding:12px 12px 20px;
+    box-shadow:0 -4px 16px rgba(0,0,0,.08);}
+  .total-score{font-size:52px;}
+  .result-hero{padding:22px 16px;}
+  .result-msg{font-size:12px;}
+  #radarCanvas{max-width:280px;}
+  .rank-item{padding:10px;}
+  .rank-content h4{font-size:12px;}
+  .rank-content .rank-tip{font-size:11px;}
+  .sub-bars{grid-template-columns:repeat(4,1fr);}
+  .sb-label{font-size:8px;}
+  .cta-card{padding:16px;min-height:72px;}
+  .cta-icon{width:42px;height:42px;font-size:20px;}
+  .cta-text h4{font-size:14px;}
+  .cta-text p{font-size:11px;}
+  .cta-tag{font-size:9px;}
+  .name-input-box input{font-size:16px;}
+  .action-item{padding:12px 10px;}
+  .ai-text p{font-size:11px;}
+}
+@media(max-width:360px){
+  .area-card .name{font-size:9px;}
+  .radio-btn{font-size:9px;}
+  .cta-text h4{font-size:13px;}
+  header h1{font-size:13px;}
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<header>
+  <div class="brand">건강만다라 | 코치용 진단 도구</div>
+  <h1>🌿 건강만다라 만성질환 예방 진단</h1>
+</header>
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div style="font-size:15px;font-weight:700;">결과를 분석하고 있습니다...</div>
+  <div style="font-size:12px;opacity:.75;margin-top:6px;">최약점 영역을 찾는 중</div>
+</div>
+
+<!-- 근거 모달 -->
+<div class="modal-overlay" id="refModal">
+  <div class="modal-box">
+    <h3 id="modal-title">근거 자료</h3>
+    <div id="modal-content"></div>
+    <button class="close-btn" onclick="closeModal()">닫기</button>
+  </div>
+</div>
+
+<!-- ════ SCREEN 1: INTRO ════ -->
+<div class="screen active" id="screen-intro">
+  <div class="container">
+    <div class="intro-hero">
+      <div class="mandala-icon">🌿</div>
+      <h2>건강만다라 최약점 진단</h2>
+      <p>만성질환 예방을 위한 8가지 건강 영역을<br>근거 기반 질문으로 정밀 진단합니다<br><br>
+      <strong>당뇨·고혈압·비만·심혈관질환</strong>을 유발하는<br>내 삶의 가장 취약한 고리를 찾아드립니다</p>
+      <span class="intro-badge">📊 8영역 × 8문항 = 64문항 | 근거 기반 설계</span>
+    </div>
+
+    <div class="area-grid">
+      <div class="area-card"><div class="icon">🍎</div><div class="name">식(食)</div><div class="sub">혈당·혈압·체중</div></div>
+      <div class="area-card"><div class="icon">🏃</div><div class="name">동(動)</div><div class="sub">활동 설계</div></div>
+      <div class="area-card"><div class="icon">😴</div><div class="name">휴(休)</div><div class="sub">수면 회복</div></div>
+      <div class="area-card"><div class="icon">💙</div><div class="name">심(心)</div><div class="sub">정서 조절</div></div>
+      <div class="area-card"><div class="icon">🏡</div><div class="name">환(環)</div><div class="sub">위험 차단</div></div>
+      <div class="area-card"><div class="icon">👥</div><div class="name">연(連)</div><div class="sub">지지망</div></div>
+      <div class="area-card"><div class="icon">📚</div><div class="name">지(智)</div><div class="sub">정보 리터러시</div></div>
+      <div class="area-card"><div class="icon">🎨</div><div class="name">락(樂)</div><div class="sub">건강 여가</div></div>
+    </div>
+
+    <div class="info-box">
+      <h3>🎯 이 진단이 특별한 이유</h3>
+      <p class="focus-text">
+        단순한 생활습관 체크가 아닙니다.<br>
+        각 질문은 <strong>WHO·AHA·NIH·대한당뇨병학회 등</strong> 공신력 있는 국내외 가이드라인과<br>
+        임상 연구 결과에 근거해 설계되었습니다.<br><br>
+        각 영역은 <strong>4가지 세부 차원</strong>으로 나뉘어 어느 지점이 취약한지 정밀하게 파악합니다.
+      </p>
+      <h3>📊 점수 체계 (4점 만점)</h3>
+      <div class="score-legend">
+        <div class="score-badge s1"><div class="num">1점</div>거의 안 함<br><small>0~25%</small></div>
+        <div class="score-badge s2"><div class="num">2점</div>가끔 함<br><small>26~50%</small></div>
+        <div class="score-badge s3"><div class="num">3점</div>자주 함<br><small>51~75%</small></div>
+        <div class="score-badge s4"><div class="num">4점</div>항상 함<br><small>76~100%</small></div>
+      </div>
+    </div>
+
+    <button class="btn-start" onclick="startQuiz()">🌱 최약점 진단 시작하기</button>
+    <p class="time-note">⏱ 예상 소요 시간: 약 8~12분 | 총 64문항 | 영역별 4개 세부차원</p>
+
+  </div>
+</div>
+
+<!-- ════ SCREEN 2: QUIZ ════ -->
+<div class="screen" id="screen-quiz">
+  <div class="container">
+    <div class="quiz-area-header">
+      <div class="quiz-area-icon" id="quiz-area-icon">🍎</div>
+      <div class="area-info">
+        <h3 id="quiz-area-title">영역 1. 식(食)</h3>
+        <p id="quiz-area-sub">혈당·혈압·체중(복부비만) 위험요인을 줄이는 방향으로 식사 패턴이 잡혀 있는가?</p>
+      </div>
+    </div>
+    <div class="quiz-meta">
+      <span class="quiz-progress-text" id="quiz-progress-text">영역 1 / 8</span>
+      <span class="quiz-answered-count" id="quiz-answered-count">0/8 답변 완료</span>
+    </div>
+
+    <div id="quiz-questions"></div>
+
+    <div class="btn-nav">
+      <button class="btn-prev" id="btn-prev" onclick="prevArea()">← 이전</button>
+      <button class="btn-next" id="btn-next" onclick="nextArea()">다음 영역 →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════ SCREEN 3: RESULT ════ -->
+<div class="screen" id="screen-result">
+  <div class="container">
+
+    <div class="result-hero">
+      <div class="total-score" id="result-total">0</div>
+      <div class="total-label">/ 256점</div>
+      <div class="result-grade" id="result-grade-text">분석 중...</div>
+      <div class="result-msg" id="result-msg"></div>
+    </div>
+
+    <div class="name-input-box">
+      <label for="userName">👤 이름을 입력하시면 맞춤 결과를 확인할 수 있어요</label>
+      <input type="text" id="userName" placeholder="이름 입력 (선택사항)" maxlength="10" oninput="updateName()">
+    </div>
+
+    <div class="chart-box">
+      <h3>🕸️ 나의 건강 프로필 레이더 차트</h3>
+      <canvas id="radarCanvas" width="320" height="320"></canvas>
+    </div>
+
+    <div class="weak-rank-section">
+      <div class="weak-rank-header">
+        <h3>🚨 집중 개선이 필요한 최약점 영역 TOP 3</h3>
+        <p>점수가 낮을수록 만성질환 위험이 높은 영역입니다</p>
+      </div>
+      <div class="weak-rank-items" id="weak-rank-items"></div>
+    </div>
+
+    <div class="score-table">
+      <div class="score-table-header">📊 8영역 × 4세부차원 점수 분석</div>
+      <div id="score-rows"></div>
+    </div>
+
+    <div class="action-section">
+      <h3>⚡ 최약점 영역 즉시 실천 가이드</h3>
+      <div id="action-items"></div>
+    </div>
+
+    <div class="evidence-section">
+      <div class="evidence-toggle" id="ev-toggle" onclick="toggleEvidence()">
+        <h3>📖 질문 근거 자료 (국내외 가이드라인 & 연구)</h3>
+        <span class="ev-arrow">▼</span>
+      </div>
+      <div class="evidence-content" id="ev-content"></div>
+    </div>
+
+
+    <div class="footer-note">
+      © 2025 건강이음센터. All Rights Reserved.<br>
+      본 진단은 의학적 진단을 대체하지 않습니다.
+    </div>
+
+    <div style="margin-top:18px;">
+      <button onclick="resetQuiz()" style="width:100%;padding:12px;background:#fff;
+        border:2px solid #E5EDE8;border-radius:12px;color:var(--text-mid);
+        font-size:13px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">🔄 처음부터 다시하기</button>
+    </div>
+  </div>
+</div>
+
+<!-- 카카오 SDK -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" crossorigin="anonymous"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ════════════════════════════════════════
+//  DATA — 8영역 × 4세부차원 × 2문항 = 64문항
+// ════════════════════════════════════════
+const AREAS = [
+{
+  id:1, icon:'🍎', name:'식(食)', sub:'영양·식사 패턴',
+  focus:'지금 내 식사는 혈당·혈압·체중(복부비만) 위험요인을 줄이는 방향으로 "패턴"이 잡혀 있는가?',
+  color:'#16A34A',
+  dims:[
+    {
+      letter:'A', name:'혈당 관리 패턴',
+      ref:'채소 우선 식사 순서 & 저GI 식품 선택',
+      refDetail:`<strong>① 식사 순서 연구 (Kuwata M. et al., 2016, Diabetes Care)</strong><br>
+        채소→단백질→탄수화물 순서로 먹을 때 식후 혈당 최대 40% 감소 확인.<br><br>
+        <strong>② 저GI 식이 (Jenkins DJ. et al., Lancet 1981)</strong><br>
+        정제 탄수화물 대신 통곡물·잡곡 섭취 시 혈당 및 인슐린 반응 유의미하게 감소.<br><br>
+        <strong>③ 한국인 대사증후군 연구 (국민건강영양조사, 2022)</strong><br>
+        흰쌀 위주 식사자는 잡곡 식사자 대비 당뇨 전단계 위험 1.4배 증가.`,
+      questions:[
+        '나는 식사 시 채소·나물을 먼저, 단백질(고기·생선·두부) 다음, 탄수화물(밥·빵)을 마지막에 먹는 순서를 실천한다',
+        '흰쌀밥·흰빵 등 정제 탄수화물 대신 잡곡밥·현미·통밀을 주식으로 주 5회 이상 선택한다'
+      ]
+    },
+    {
+      letter:'B', name:'혈압 관리 패턴',
+      ref:'나트륨 감소 & 당 음료 제한',
+      refDetail:`<strong>① WHO 소금 섭취 권고 (2023)</strong><br>
+        하루 나트륨 2,000mg(소금 5g) 이하 권고. 한국인 평균 섭취량은 권고량의 1.8배(2022 국민건강통계).<br><br>
+        <strong>② DASH 식이 연구 (Appel LJ. et al., NEJM 1997)</strong><br>
+        나트륨 줄이고 채소·과일·저지방 유제품 늘리면 수축기 혈압 11mmHg 감소.<br><br>
+        <strong>③ 가당 음료와 혈압 (Malik VS. et al., Circulation 2010)</strong><br>
+        가당 음료 1잔/일 증가 시 고혈압 위험 16% 증가.`,
+      questions:[
+        '나트륨을 줄이기 위해 국물을 절반 이하로 마시거나, 음식을 주문·조리 시 "싱겁게" 요청하는 습관이 있다',
+        '단 음료(탄산음료·설탕 커피·주스·에너지음료)를 하루 1잔 이하로 제한한다'
+      ]
+    },
+    {
+      letter:'C', name:'체중·복부비만 관리 패턴',
+      ref:'야식 제한 & 식사량 조절',
+      refDetail:`<strong>① 야식과 복부비만 (Yoshida J. et al., Nutrients 2018)</strong><br>
+        밤 9시 이후 식사 습관은 복부지방·BMI 증가와 유의미하게 관련(OR 1.34).<br><br>
+        <strong>② 오키나와 '하라 하치 분메' 원칙</strong><br>
+        배부름 80%에서 멈추는 식습관이 칼로리 섭취를 20~30% 줄여 체중 유지에 기여.<br><br>
+        <strong>③ 시간제한 식이 (Sutton EF. et al., Cell Metabolism 2018)</strong><br>
+        늦은 시간 식사 제한만으로도 인슐린 저항성·혈압·산화스트레스 유의미하게 개선.`,
+      questions:[
+        '야식(오후 9시 이후 음식 섭취)을 주 1회 이하로 제한하고, 취침 2시간 전에는 음식을 먹지 않는다',
+        '과식하지 않고 배부름 80% 수준("조금 더 먹을 수 있지만 멈추는" 상태)에서 식사를 마치는 습관이 있다'
+      ]
+    },
+    {
+      letter:'D', name:'식사 질·구성 패턴',
+      ref:'가공식품 감소 & 단백질 충분 섭취',
+      refDetail:`<strong>① 초가공식품과 만성질환 (Fiolet T. et al., BMJ 2018)</strong><br>
+        초가공식품 섭취 10% 증가 시 암 발생 위험 12%, 심혈관질환 위험 13% 증가.<br><br>
+        <strong>② 단백질 섭취와 근감소·비만 (대한비만학회 진료지침 2023)</strong><br>
+        체중 1kg당 1.2~1.5g 단백질 섭취가 근육 유지 및 포만감 향상에 효과적.<br><br>
+        <strong>③ 식품 다양성 지수 (FAO, 2023)</strong><br>
+        식품 다양성이 높을수록 미량영양소 결핍·만성질환 위험 감소.`,
+      questions:[
+        '가공식품·인스턴트·패스트푸드(라면·햄버거·과자·냉동식품 등)를 주 3회 이하로 섭취한다',
+        '매끼 단백질 식품(달걀·두부·생선·닭가슴살·콩류 등)을 손바닥 크기 분량(약 100~150g) 이상 섭취한다'
+      ]
+    }
+  ]
+},
+{
+  id:2, icon:'🏃', name:'동(動)', sub:'신체활동 설계',
+  focus:'일주일 기준 권장량 수준의 활동을 하고 있으며, 내 생활 속에 "움직임이 자동으로 들어가게" 설계되어 있는가?',
+  color:'#2563EB',
+  dims:[
+    {
+      letter:'A', name:'유산소 운동량',
+      ref:'WHO·AHA 주 150분 중강도 유산소 권고',
+      refDetail:`<strong>① WHO 신체활동 가이드라인 (2020)</strong><br>
+        성인은 주당 중강도 유산소 150~300분 또는 고강도 75~150분 권고.<br><br>
+        <strong>② 미국심장학회(AHA) 권고 (2018)</strong><br>
+        주 150분 이상 중강도 운동 시 심혈관질환 위험 35%, 제2형 당뇨 위험 26% 감소.<br><br>
+        <strong>③ 대한당뇨병학회 진료지침 (2023)</strong><br>
+        당뇨 전단계 및 고위험군: 주 150분 이상 유산소 + 주 2회 이상 근력 운동 권고.`,
+      questions:[
+        '나는 일주일에 중강도 유산소 운동(빠른 걷기·자전거·수영·댄스 등 숨이 조금 차는 강도)을 150분 이상 한다',
+        '운동 계획이 달력·앱·다이어리에 고정 일정으로 등록되어 있고, 대부분 이행하고 있다'
+      ]
+    },
+    {
+      letter:'B', name:'근력 운동 & 일일 걸음수',
+      ref:'주 2회 이상 근력 운동 & 7,000보 목표',
+      refDetail:`<strong>① 근감소증 예방 (Cruz-Jentoft AJ. et al., Age Ageing 2019)</strong><br>
+        40대 이후 근육량 연 1~2% 감소. 주 2회 이상 저항 운동으로 근감소 예방 및 기초대사량 유지.<br><br>
+        <strong>② 만보 vs 7,000보 연구 (Paluch AE. et al., JAMA Network Open 2021)</strong><br>
+        하루 7,000보 이상 걷는 사람은 모든 원인 사망 위험이 50~70% 감소.`,
+      questions:[
+        '근력 운동(스쿼트·팔굽혀펴기·아령·플랭크 등)을 주 2회 이상 실시한다',
+        '하루 총 걸음수가 7,000보 이상이 되도록 스마트워치·만보계·앱 등으로 확인·관리한다'
+      ]
+    },
+    {
+      letter:'C', name:'일상 활동 설계 (생활 속 움직임)',
+      ref:'NEAT 개념 — 계단·이동 틈새 운동',
+      refDetail:`<strong>① NEAT 이론 (Levine JA., Science 2005)</strong><br>
+        NEAT(비운동성 활동 열생산): 일상 움직임이 총 에너지 소비의 15~50% 차지.<br>
+        계단 이용·서서 일하기 등 생활 속 움직임만으로도 연간 수kg 체중 조절 효과.<br><br>
+        <strong>② 자기 모니터링 효과 (Michie S. et al., Health Psychology 2009)</strong><br>
+        활동량 기록 및 피드백이 신체활동 증가에 가장 효과적인 행동변화 전략.`,
+      questions:[
+        '엘리베이터 대신 계단 이용, 한 정거장 먼저 내리기, 점심 후 짧은 산책 등 이동 틈새 운동이 습관화되어 있다',
+        '스마트워치·만보계·건강 앱으로 활동량(걸음수·운동 시간)을 기록하고 주간 목표와 비교한다'
+      ]
+    },
+    {
+      letter:'D', name:'좌식 시간 차단',
+      ref:'장시간 앉기 독립적 위험요인',
+      refDetail:`<strong>① 좌식 행동과 사망위험 (Biswas A. et al., Annals IM 2015)</strong><br>
+        하루 8시간 이상 앉아 있는 사람은 규칙적 운동을 해도 사망위험 15~20% 증가.<br><br>
+        <strong>② 30분 인터럽트 전략 (Dunstan DW. et al., Diabetes Care 2012)</strong><br>
+        앉은 시간을 30분마다 2~3분 걷기로 중단 시 식후 혈당 24%, 인슐린 23% 감소.`,
+      questions:[
+        '앉아서 작업 중 30~40분마다 일어나 1~3분 걷거나 스트레칭을 하는 "좌식 중단 루틴"이 있다',
+        '운동하기 싫은 날에도 "최소 10분 걷기"라는 최소 활동 원칙을 지키는 습관이 있다'
+      ]
+    }
+  ]
+},
+{
+  id:3, icon:'😴', name:'휴(休)', sub:'수면·회복 관리',
+  focus:'내 수면은 회복을 만들어내는 수면요인(취침 전 화면·불안·야식·카페인 등)을 갖추고 있는가?',
+  color:'#7C3AED',
+  dims:[
+    {
+      letter:'A', name:'수면 시간 & 리듬',
+      ref:'성인 7~9시간 & 사회적 시차(Social Jetlag)',
+      refDetail:`<strong>① 미국수면재단(NSF) & 미국수면의학회(AASM) 권고 (2015)</strong><br>
+        성인(26~64세) 권장 수면: 7~9시간. 6시간 미만 지속 시 당뇨·고혈압·심혈관질환 위험 급증.<br><br>
+        <strong>② 사회적 시차(Social Jetlag) 연구 (Wittmann M. et al., Chronobiology Int 2006)</strong><br>
+        주말·평일 취침시간 차이 2시간 이상 시 비만 위험 33%, 인슐린 저항성 증가.`,
+      questions:[
+        '매일 7~8시간의 수면을 취하며, 주말에도 평일과 취침·기상 시간이 1시간 이내로 유지된다',
+        '수면 부족으로 인한 낮 시간 과도한 졸음·집중력 저하·극심한 피로가 주 2회 이상 발생하지 않는다'
+      ]
+    },
+    {
+      letter:'B', name:'수면 방해 요인 차단',
+      ref:'블루라이트·카페인·야식 차단',
+      refDetail:`<strong>① 블루라이트와 멜라토닌 (Czeisler CA., Science 2013)</strong><br>
+        취침 1시간 전 스마트폰 화면이 멜라토닌 분비를 50% 억제, 수면 잠복기 1시간 연장.<br><br>
+        <strong>② 카페인 반감기 (Drake C. et al., J Clin Sleep Med 2013)</strong><br>
+        오후 6시 카페인 섭취 시 수면 시간 1시간 단축 확인. 반감기 5~6시간.<br><br>
+        <strong>③ 야식과 수면 질 (Crispim CA. et al., Nutrients 2011)</strong><br>
+        취침 2시간 이내 야식은 코어 체온 유지로 서파(깊은) 수면을 방해.`,
+      questions:[
+        '취침 1시간 전부터 스마트폰·TV·태블릿 화면(블루라이트)을 끄거나 나이트모드로 전환한다',
+        '오후 2시 이후 카페인 섭취를 하지 않고, 취침 2시간 이내 야식도 거의 없다'
+      ]
+    },
+    {
+      letter:'C', name:'수면 환경 & 입면 루틴',
+      ref:'수면 위생 (Sleep Hygiene) 표준 권고',
+      refDetail:`<strong>① 미국수면의학회(AASM) 수면 위생 가이드라인 (2023)</strong><br>
+        최적 수면 온도: 18~22도, 습도: 40~60%, 소음: 30dB 이하, 완전 암막 권고.<br><br>
+        <strong>② 인지행동치료(CBT-I) 근거 (Morin CM. et al., JAMA 1999)</strong><br>
+        취침 전 이완 루틴(독서·명상·가벼운 스트레칭)이 불안 기반 불면증에 가장 효과적.`,
+      questions:[
+        '침실은 어둡고 조용하며 온도 18~22도 수준의 수면 적합 환경을 유지한다',
+        '잠들기 전 불안·걱정이 수면을 방해하지 않도록 이완 루틴(독서·명상·가벼운 스트레칭 등)이 있다'
+      ]
+    },
+    {
+      letter:'D', name:'수면 질 & 회복감',
+      ref:'수면 효율 & 회복성 수면',
+      refDetail:`<strong>① 수면 효율과 건강 (Ohayon MM., Sleep Med Rev 2002)</strong><br>
+        수면 효율 85% 이상(잠자리에 있는 시간 대비 실제 수면 시간)이 양호한 수면 기준.<br><br>
+        <strong>② 수면 부족과 체중 (Spiegel K. et al., PLOS Med 2004)</strong><br>
+        수면 6시간 미만 시 식욕 촉진 호르몬(그렐린) 28% 증가, 포만 호르몬(렙틴) 18% 감소.`,
+      questions:[
+        '잠자리에 누운 후 30분 이내에 잠들고, 자다가 자주 깨거나 새벽에 오래 깨어있지 않는다',
+        '아침에 일어났을 때 몸이 개운하고, 하루 활동에 지장 없는 충분한 회복감을 느낀다'
+      ]
+    }
+  ]
+},
+{
+  id:4, icon:'💙', name:'심(心)', sub:'정서 조절',
+  focus:'내 스트레스·기분 상태는 수면·식욕·활동·관계를 무너뜨리지 않도록 관리되고 있는가?',
+  color:'#DB2777',
+  dims:[
+    {
+      letter:'A', name:'스트레스 & 식욕·식사',
+      ref:'정서적 식사(Emotional Eating)와 만성질환',
+      refDetail:`<strong>① 정서적 식사와 비만 (Macht M., Appetite 2008)</strong><br>
+        스트레스 시 고지방·고당 음식 선택 경향이 2.2배 증가. 코르티솔이 식욕·지방 축적 촉진.<br><br>
+        <strong>② 스트레스 코르티솔과 복부비만 (Epel ES. et al., Psychosom Med 2000)</strong><br>
+        만성 스트레스 시 코르티솔 증가 → 복부(내장) 지방 선택적 증가 → 인슐린 저항성 악화.`,
+      questions:[
+        '스트레스를 받아도 폭식·야식·과음 등 음식으로 해소하지 않으며, 식사 패턴이 크게 흔들리지 않는다',
+        '감정 기복(우울·불안·짜증)이 심해도 식사량·식사 규칙성을 유지한다'
+      ]
+    },
+    {
+      letter:'B', name:'스트레스 & 수면·신체활동',
+      ref:'스트레스-수면-운동 3방향 연결',
+      refDetail:`<strong>① 심리적 스트레스와 수면 (Hall M. et al., Psychosom Med 2000)</strong><br>
+        높은 일상 스트레스가 수면 개시 어려움, 수면 유지 장애와 직접 관련.<br><br>
+        <strong>② 운동과 정서 조절 (Salmon P., Clin Psychol Rev 2001)</strong><br>
+        규칙적 운동이 스트레스 반응성 감소, 기분 저하 시 운동 회피 악순환 차단이 핵심.`,
+      questions:[
+        '스트레스가 쌓여도 수면(잠들기 어려움·새벽 각성)에 큰 지장을 주지 않도록 관리된다',
+        '기분이 좋지 않거나 피곤한 날에도 계획된 신체 활동·운동을 대부분 실천한다'
+      ]
+    },
+    {
+      letter:'C', name:'스트레스 & 관계',
+      ref:'정서 조절과 사회적 관계 유지',
+      refDetail:`<strong>① 스트레스와 관계 갈등 (Kiecolt-Glaser JK., Psychosom Med 1999)</strong><br>
+        만성 스트레스가 관계 갈등을 증폭시키고, 관계 갈등이 다시 스트레스를 악화시키는 악순환.<br><br>
+        <strong>② 사회적 지지와 건강 (Uchino BN., Psychol Bull 2004)</strong><br>
+        사회적 지지가 코르티솔 반응을 완충하고, 스트레스 관련 만성질환 위험 감소.`,
+      questions:[
+        '기분이 나쁘거나 화가 나도 가족·지인에게 과도한 짜증·화풀이·단절 없이 관계를 유지한다',
+        '정서적으로 힘들 때 스스로 억누르지 않고 가족·친구·전문가에게 도움을 요청할 수 있다'
+      ]
+    },
+    {
+      letter:'D', name:'정서 자기조절 능력',
+      ref:'PHQ-2 기반 우울·불안 선별 & 자기조절',
+      refDetail:`<strong>① PHQ-2 (Kroenke K., Medical Care 2003)</strong><br>
+        2주간 지속되는 무기력·우울·흥미 감소가 주요 우울증 선별 기준. 만성질환 위험 2~3배 증가.<br><br>
+        <strong>② 인지 재평가 전략 (Gross JJ., Psychol Inquiry 2001)</strong><br>
+        감정이 격해질 때 멈춤·호흡·재해석 등 자기조절 전략이 코르티솔 감소 및 혈압 안정에 기여.`,
+      questions:[
+        '감정이 격해졌을 때 잠시 멈추고 심호흡·산책·글쓰기 등으로 스스로 조절하는 나만의 방법이 있다',
+        '최근 2주간 지속적인 무기력감·우울·불안 없이 일상생활(식사·수면·활동·관계)이 가능하다'
+      ]
+    }
+  ]
+},
+{
+  id:5, icon:'🏡', name:'환(環)', sub:'생활환경 설계',
+  focus:'내 생활환경은 흡연·음주·좌식·야식·수면방해 같은 위험요인을 "유발"하는가, "차단"하는가?',
+  color:'#D97706',
+  dims:[
+    {
+      letter:'A', name:'흡연·음주 환경',
+      ref:'담배·알코올 환경 노출과 만성질환',
+      refDetail:`<strong>① WHO FCTC 담배 규제 협약 & IARC (2012)</strong><br>
+        간접흡연 포함 담배 연기는 그룹1 확정 발암물질. 하루 10개비 미만 흡연도 심혈관질환 위험 2배.<br><br>
+        <strong>② 알코올과 만성질환 (WHO, 2018; Shield KD. et al.)</strong><br>
+        음주 없는 수준이 가장 안전. 주 2회 이하·1회 2잔 이하도 암·간질환·고혈압 위험 증가.`,
+      questions:[
+        '현재 담배를 피우지 않고, 가정·직장 내 간접흡연 환경에 노출되지 않는다',
+        '음주는 주 2회 이하, 1회 2잔(순수알코올 20g) 이하로 제한되며, 과음을 유도하는 환경을 피한다'
+      ]
+    },
+    {
+      letter:'B', name:'식품 환경 설계 (넛지)',
+      ref:'주방 환경 설계와 식행동 변화',
+      refDetail:`<strong>① 넛지 이론 (Thaler & Sunstein, "Nudge" 2008)</strong><br>
+        환경 설계(Default 변경)만으로 건강 행동을 30~40% 변화시킬 수 있음.<br><br>
+        <strong>② 주방 환경과 식품 선택 (Wansink B. et al., AJPM 2015)</brief><br>
+        과일·채소가 눈에 잘 보이는 위치에 있을 때 섭취 2.4배 증가. 고열량 간식이 없으면 섭취 70% 감소.`,
+      questions:[
+        '집안(주방·거실)에 고열량 간식·설탕 음료가 손에 닿는 곳에 없고, 건강 식품(과일·채소·견과류)이 눈에 잘 띄는 곳에 있다',
+        '야식을 유발하는 환경(야간 배달앱 알림·편의점 방문 습관)을 의식적으로 차단하고 있다'
+      ]
+    },
+    {
+      letter:'C', name:'수면 방해 & 좌식 환경 차단',
+      ref:'침실 환경 & 좌식 생활 설계',
+      refDetail:`<strong>① 침실 스마트폰과 수면 장애 (Hysing M. et al., BMJ Open 2015)</strong><br>
+        침실에 스마트폰을 두는 경우 수면 잠복기 증가, 총 수면 시간 감소.<br><br>
+        <strong>② 직장 좌식 환경 개선 (Biswas A., 2015 앞 동)</strong><br>
+        스탠딩 데스크·이동 동선 설계 등 환경 변경이 좌식 시간을 하루 77분 감소.`,
+      questions:[
+        '침실에는 TV·스마트폰 등 수면을 방해하는 기기가 없거나, 취침 전 완전히 끄는 규칙이 있다',
+        '앉아 있는 생활을 줄이기 위해 서서 일하기·이동 동선 설계·책상 정리 등 환경적 장치가 있다'
+      ]
+    },
+    {
+      letter:'D', name:'건강 촉진 환경 설계',
+      ref:'행동 설계 — 쉽고 자동적인 건강 선택',
+      refDetail:`<strong>① 행동 설계(Behavior Design) (Fogg BJ., "Tiny Habits" 2020)</strong><br>
+        운동복·운동화가 눈에 보이는 곳에 준비되어 있을 때 운동 실행률 40% 증가.<br><br>
+        <strong>② 환경 재설계와 지속적 행동 변화 (Wood W. & Neal DT., Science 2016)</strong><br>
+        환경 변화가 의지력보다 습관 유지에 2~3배 효과적.`,
+      questions:[
+        '운동하기 쉬운 환경(운동화·운동복이 항상 준비된 상태, 집 근처 공원·체육시설 파악)이 갖춰져 있다',
+        '내 생활 전반이 건강한 선택을 쉽게, 나쁜 습관(흡연·과음·폭식·좌식)을 어렵게 만드는 방향으로 설계되어 있다'
+      ]
+    }
+  ]
+},
+{
+  id:6, icon:'👥', name:'연(連)', sub:'관계·지지망',
+  focus:'내 주변 관계망은 건강습관을 지지·동행해주고 있는가(상담·코칭 포함)?',
+  color:'#0891B2',
+  dims:[
+    {
+      letter:'A', name:'가족·친구 지지망',
+      ref:'사회적 지지와 사망위험',
+      refDetail:`<strong>① 사회적 고립과 사망위험 (Holt-Lunstad J. et al., PLOS Med 2010)</strong><br>
+        사회적 고립 및 외로움이 흡연에 맞먹는 사망위험 증가(OR 1.45). 강한 사회적 유대가 생존율 50% 향상.<br><br>
+        <strong>② 배우자·가족 지지와 만성질환 관리 (DiMatteo MR., Health Psychol 2004)</strong><br>
+        가족 지지가 있을 때 치료 순응도 및 건강 행동 실천율 19% 향상.`,
+      questions:[
+        '가족·친구 중 건강 목표(운동·식단 개선·금연·금주 등)를 함께 실천하거나 적극적으로 응원해주는 사람이 있다',
+        '내 건강 상태(검진 결과·체중 변화·건강 고민)를 솔직하게 나누고 의견을 들을 수 있는 가까운 사람이 있다'
+      ]
+    },
+    {
+      letter:'B', name:'전문가 연결',
+      ref:'전문가 코칭과 만성질환 예방 효과',
+      refDetail:`<strong>① 당뇨병 예방 프로그램 DPP (Knowler WC. et al., NEJM 2002)</strong><br>
+        전문가 코칭+생활습관 중재 시 당뇨 발생 위험 58% 감소 (메트포민 31%보다 효과적).<br><br>
+        <strong>② 건강코칭 메타분석 (Olsen JM. et al., JABFM 2014)</strong><br>
+        건강코칭 참여 시 HbA1c·혈압·BMI 유의미하게 감소. 전화 코칭도 효과 동등.`,
+      questions:[
+        '건강 문제(만성질환 전단계·체중 이상·검진 이상 소견)가 생겼을 때 상담할 전문가(의사·간호사·영양사·건강코치)가 있다',
+        '건강 코칭·상담·강좌 프로그램을 이용한 경험이 있거나, 적극적으로 활용할 의향이 있다'
+      ]
+    },
+    {
+      letter:'C', name:'건강 커뮤니티 참여',
+      ref:'그룹 기반 건강 관리 효과',
+      refDetail:`<strong>① 그룹 기반 건강 중재 (Greaves CJ. et al., BMC Med 2011)</strong><br>
+        그룹 건강 프로그램 참여 시 개인 중재 대비 체중 감량 1.5배, 운동 지속률 2배 증가.<br><br>
+        <strong>② 또래 지지 모델 (Dennis CL., Can J Nurs Res 2003)</strong><br>
+        같은 목표를 가진 동료와의 교류가 자기효능감을 높여 건강 행동 지속률 증가.`,
+      questions:[
+        '건강 관련 모임·강좌·커뮤니티(운동 모임·건강독서클럽·건강강좌·온라인 커뮤니티 등)에 월 1회 이상 참여한다',
+        '건강 습관을 방해하거나 위험 행동(폭식·과음·흡연 등)을 권유하는 관계에서 적절히 거리를 두거나 조율할 수 있다'
+      ]
+    },
+    {
+      letter:'D', name:'사회적 건강 동행 문화',
+      ref:'사회적 규범과 건강 행동 확산',
+      refDetail:`<strong>① 사회적 네트워크와 비만 확산 (Christakis NA. & Fowler JH., NEJM 2007)</strong><br>
+        비만·건강 행동 모두 사회 네트워크를 통해 전파. 친구가 건강 행동 실천 시 자신도 실천 확률 57% 증가.<br><br>
+        <strong>② 책임 파트너십 (Prestwich A. et al., BJHP 2012)</strong><br>
+        건강 목표를 타인에게 공유하고 피드백 받을 때 목표 달성률 33% 향상.`,
+      questions:[
+        '주변 사람들과 건강 정보를 나누고 서로 칭찬·격려를 통해 동기부여하는 문화가 나의 일상에 있다',
+        '"함께 건강해지자"는 의식으로 혼자가 아닌 동행(가족·친구·커뮤니티)과 함께 건강 관리를 실천한다'
+      ]
+    }
+  ]
+},
+{
+  id:7, icon:'📚', name:'지(智)', sub:'건강 정보 리터러시',
+  focus:'나는 건강정보(검진결과·기능식품·가이드라인)를 이해하고 선별할 수 있는 기준을 갖고 있는가?',
+  color:'#059669',
+  dims:[
+    {
+      letter:'A', name:'검진 결과 이해 능력',
+      ref:'건강 리터러시와 만성질환 관리',
+      refDetail:`<strong>① 건강 리터러시와 만성질환 (Berkman ND. et al., AHRQ 2011)</strong><br>
+        낮은 건강 리터러시는 입원율 1.7배, 응급실 방문 1.5배, 만성질환 악화율 증가와 직결.<br><br>
+        <strong>② 국가건강검진 결과 해석 (질병관리청, 2023)</strong><br>
+        공복혈당 100~125mg/dL = 당뇨 전단계, 혈압 130/80mmHg 이상 = 고혈압 전단계 기준.`,
+      questions:[
+        '건강검진 결과표(혈당·혈압·콜레스테롤·허리둘레·간수치 등)의 수치 의미를 스스로 해석하고 설명할 수 있다',
+        '"정상"과 "전단계(경계·주의)"를 구분하고, 내 수치가 어느 위험 단계에 해당하는지 안다'
+      ]
+    },
+    {
+      letter:'B', name:'건강기능식품·정보 선별',
+      ref:'정보 과부하 시대의 건강 정보 판별',
+      refDetail:`<strong>① FDA·식품의약품안전처 건강기능식품 가이드</strong><br>
+        광고 주장과 달리 건강기능식품은 질병 치료제가 아님. 성분·함량·기능성 인정 여부 확인 필수.<br><br>
+        <strong>② 건강 가짜뉴스 실태 (WHO Infodemic Report, 2022)</strong><br>
+        COVID 및 건강 관련 허위정보가 온라인에서 6배 빠르게 확산. 비판적 정보 판별 능력이 건강 결정의 핵심.`,
+      questions:[
+        '건강기능식품·영양제를 선택할 때 광고·리뷰보다 성분·함량·식약처 기능성 인정 여부·임상 근거를 먼저 확인한다',
+        'SNS·유튜브·블로그의 건강 정보를 접할 때 출처·전문가 검증 여부·이해충돌을 확인하는 습관이 있다'
+      ]
+    },
+    {
+      letter:'C', name:'만성질환 위험 인식',
+      ref:'예방 가능한 만성질환 진단 기준 숙지',
+      refDetail:`<strong>① WHO 만성질환 예방 보고서 (2023)</strong><br>
+        80%의 심혈관질환·당뇨가 예방 가능. 진단 기준 인지와 조기 발견이 핵심 예방 전략.<br><br>
+        <strong>② 가족력과 유전 위험 (Nielsen DE. et al., JAMA Intern Med 2016)</strong><br>
+        가족력을 아는 사람이 예방 행동을 실천할 확률 2배 증가. 모르면 위험도 인식 불가.`,
+      questions:[
+        '당뇨·고혈압·고지혈증·비만의 진단 기준 수치와 내 가족력(부모·형제의 만성질환)을 알고 있다',
+        '나의 현재 식사·운동·수면·흡연·음주 습관이 만성질환 위험 요인과 어떻게 연결되는지 구체적으로 설명할 수 있다'
+      ]
+    },
+    {
+      letter:'D', name:'건강 의사결정 능력',
+      ref:'의학적 의사결정과 가이드라인 활용',
+      refDetail:`<strong>① 공동 의사결정(Shared Decision Making) (Légaré F. et al., Cochrane 2014)</strong><br>
+        환자가 의학적 정보를 이해하고 능동적으로 참여할 때 치료 순응도 및 건강 결과 향상.<br><br>
+        <strong>② 질병관리청 국가건강검진 권고 (2023)</strong><br>
+        연령·성별별 검진 주기 및 생활 수칙을 알고 실천하는 것이 만성질환 조기 발견의 핵심.`,
+      questions:[
+        '의사·전문가의 처방·권고(약 복용·생활습관 개선 처방)의 근거를 이해하고, 실천 여부를 스스로 판단하는 기준이 있다',
+        '국가건강검진 권고 주기를 지키고, 검진 후 이상 소견에 대해 적극적으로 추가 검사·상담을 받는다'
+      ]
+    }
+  ]
+},
+{
+  id:8, icon:'🎨', name:'락(樂)', sub:'건강 여가',
+  focus:'내가 즐기는 여가가 "소모"가 아니라 지속 가능한 회복·활력·삶의 질로 연결되는가(건강수명 관점)?',
+  color:'#7C3AED',
+  dims:[
+    {
+      letter:'A', name:'여가의 회복력 (충전 vs 소모)',
+      ref:'회복적 경험 이론과 긍정 정서',
+      refDetail:`<strong>① 회복적 경험 이론 (Kaplan S., Psych Rev 1995)</strong><br>
+        여가의 4요소(이탈·연장·매혹·적합성)가 충족될 때만 진정한 정신적 회복 발생.<br><br>
+        <strong>② 긍정 정서와 건강 수명 (Pressman SD. & Cohen S., Psych Bull 2005)</strong><br>
+        긍정 정서를 자주 경험하는 사람의 기대 수명 7~10년 증가. 면역 기능·심혈관 건강 개선.`,
+      questions:[
+        '여가 활동 후 피로가 풀리고 활력·기분이 좋아지는 것을 느낀다 (화면 시청·SNS 후에도 그렇게 느끼는가 재확인)',
+        '과도한 음주·폭식을 동반하거나 다음 날 몸이 더 피곤한 "건강 소모형 여가"를 의식적으로 줄이고 있다'
+      ]
+    },
+    {
+      letter:'B', name:'신체 활성 여가',
+      ref:'여가 신체활동과 건강수명',
+      refDetail:`<strong>① 여가 신체활동과 사망위험 (Arem H. et al., JAMA Intern Med 2015)</strong><br>
+        여가 시간 신체활동이 전혀 없는 사람에 비해 권장량 충족 시 사망위험 31% 감소.<br><br>
+        <strong>② 디지털 디톡스와 정신건강 (Hunt MG. et al., J Soc Clin Psychol 2018)</strong><br>
+        SNS 사용을 하루 30분으로 제한 시 3주 후 외로움·우울 감소, 삶의 만족도 증가.`,
+      questions:[
+        '산책·등산·댄스·스포츠·자전거 등 신체를 움직이는 여가·취미가 내 일주일 일정에 포함되어 있다',
+        '여가 시간에 스마트폰·유튜브·SNS 없이 나만의 오프라인 활동을 최근 1주일 내 한 적이 있다'
+      ]
+    },
+    {
+      letter:'C', name:'인지·창의 & 사회적 여가',
+      ref:'뇌 건강과 사회적 연결의 장수 효과',
+      refDetail:`<strong>① 인지 활동과 치매 예방 (Stern Y. et al., Neurology 1994, "인지 예비능")</strong><br>
+        독서·퍼즐·악기·창작 등 인지 자극 활동이 치매 발병을 5~7년 지연시키는 효과.<br><br>
+        <strong>② 사회적 여가와 장수 (Steptoe A. et al., PNAS 2016)</strong><br>
+        타인과 함께하는 여가 참여자는 코르티솔이 낮고, 10년 사망 위험이 26% 감소.`,
+      questions:[
+        '독서·글쓰기·악기·퍼즐·공예·요리 등 인지·창의적 활동을 즐기며 두뇌를 자극한다',
+        '취미·여가 활동에서 타인과 함께하는 사회적 연결(모임·클럽·봉사·동호회)이 이루어지고 있다'
+      ]
+    },
+    {
+      letter:'D', name:'지속 가능한 여가 설계',
+      ref:'건강수명 관점의 여가 습관 형성',
+      refDetail:`<strong>① 건강 수명과 여가 활동 (JAGES 코호트 연구, 일본, 2019)</strong><br>
+        취미·여가 활동이 있는 고령자가 없는 그룹 대비 사망위험 16%, 기능 저하 위험 28% 감소.<br><br>
+        <strong>② 일·여가 균형과 번아웃 예방 (Sonnentag S., J Appl Psychol 2001)</strong><br>
+        여가 시간을 의도적으로 확보하는 사람이 업무 번아웃이 낮고 회복탄력성이 높음.`,
+      questions:[
+        '바쁜 시기에도 최소한의 여가 시간(하루 30분 이상)을 확보하는 것이 나의 우선순위에 있다',
+        '10년·20년 후에도 즐길 수 있는 지속 가능한 여가 습관(걷기·독서·악기·사교모임 등)이 지금부터 만들어지고 있다'
+      ]
+    }
+  ]
+}
+];
+
+// ════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════
+let answers = {};  // key: "areaId-dimIdx-qIdx" → value: 1~4
+let currentArea = 0;
+
+// ════════════════════════════════════════
+//  NAVIGATION
+// ════════════════════════════════════════
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function updateProgressBar(){
+  const pct=(currentArea/AREAS.length)*100;
+  document.getElementById('progress-bar').style.width=pct+'%';
+}
+function startQuiz(){
+  currentArea=0;
+  renderQuiz();
+  showScreen('screen-quiz');
+  updateProgressBar();
+}
+function resetQuiz(){
+  answers={};
+  currentArea=0;
+  showScreen('screen-intro');
+  document.getElementById('progress-bar').style.width='0%';
+}
+
+// ════════════════════════════════════════
+//  QUIZ RENDER
+// ════════════════════════════════════════
+function renderQuiz(){
+  const area=AREAS[currentArea];
+  document.getElementById('quiz-area-icon').textContent=area.icon;
+  document.getElementById('quiz-area-title').textContent=`영역 ${area.id}. ${area.name} — ${area.sub}`;
+  document.getElementById('quiz-area-sub').textContent=area.focus;
+  document.getElementById('quiz-progress-text').textContent=`영역 ${currentArea+1} / ${AREAS.length}`;
+  updateAnsweredCount();
+
+  const container=document.getElementById('quiz-questions');
+  container.innerHTML='';
+
+  area.dims.forEach((dim,di)=>{
+    const group=document.createElement('div');
+    group.className='sub-dim-group';
+
+    const lbl=document.createElement('div');
+    lbl.className='sub-dim-label';
+    lbl.innerHTML=`
+      <div class="sdl-letter">${dim.letter}</div>
+      <div class="sdl-text">${dim.name}</div>
+      <span class="sdl-ref" onclick="showRef(${currentArea},${di})">📖 근거</span>`;
+    group.appendChild(lbl);
+
+    dim.questions.forEach((q,qi)=>{
+      const key=`${area.id}-${di}-${qi}`;
+      const saved=answers[key];
+      const card=document.createElement('div');
+      card.className='question-card'+(saved!==undefined?' answered':'');
+      card.id='card-'+key;
+
+      const labels=['거의<br>안 함','가끔<br>함','자주<br>함','항상<br>함'];
+      card.innerHTML=`
+        <div class="q-text"><span class="q-num">Q${di*2+qi+1}.</span>${q}</div>
+        <div class="radio-group">
+          ${[1,2,3,4].map(v=>`
+            <label>
+              <input type="radio" name="${key}" value="${v}" ${saved==v?'checked':''} onchange="saveAnswer('${key}',${v},this)">
+              <span class="radio-btn">${v}점<br><span style="font-size:9px;opacity:.75">${labels[v-1]}</span></span>
+            </label>`).join('')}
+        </div>`;
+      group.appendChild(card);
+    });
+    container.appendChild(group);
+  });
+
+  // button state
+  document.getElementById('btn-prev').disabled=(currentArea===0);
+  const btnNext=document.getElementById('btn-next');
+  if(currentArea===AREAS.length-1){
+    btnNext.textContent='✅ 결과 보기';
+  } else {
+    btnNext.textContent='다음 영역 →';
+  }
+}
+
+function saveAnswer(key,val,el){
+  answers[key]=val;
+  const card=document.getElementById('card-'+key);
+  if(card) card.classList.add('answered');
+  updateAnsweredCount();
+}
+
+function updateAnsweredCount(){
+  const area=AREAS[currentArea];
+  let count=0;
+  area.dims.forEach((dim,di)=>{
+    dim.questions.forEach((_,qi)=>{
+      if(answers[`${area.id}-${di}-${qi}`]!==undefined) count++;
+    });
+  });
+  document.getElementById('quiz-answered-count').textContent=`${count}/8 답변 완료`;
+}
+
+function prevArea(){
+  if(currentArea>0){currentArea--;renderQuiz();updateProgressBar();window.scrollTo({top:0});}
+}
+function nextArea(){
+  // check all answered
+  const area=AREAS[currentArea];
+  let unanswered=0;
+  area.dims.forEach((dim,di)=>{
+    dim.questions.forEach((_,qi)=>{
+      if(answers[`${area.id}-${di}-${qi}`]===undefined) unanswered++;
+    });
+  });
+  if(unanswered>0){
+    if(!confirm(`${unanswered}개 질문에 아직 답변하지 않았습니다.\n건너뛰고 진행하시겠습니까?\n(미응답은 1점으로 처리됩니다)`)) return;
+  }
+  if(currentArea<AREAS.length-1){
+    currentArea++;
+    renderQuiz();
+    updateProgressBar();
+    window.scrollTo({top:0});
+  } else {
+    showResults();
+  }
+}
+
+// ════════════════════════════════════════
+//  REFERENCE MODAL
+// ════════════════════════════════════════
+function showRef(areaIdx,dimIdx){
+  const dim=AREAS[areaIdx].dims[dimIdx];
+  document.getElementById('modal-title').textContent=`📖 근거 자료: ${dim.name}`;
+  document.getElementById('modal-content').innerHTML=`<p>${dim.refDetail}</p>`;
+  document.getElementById('refModal').classList.add('show');
+}
+function closeModal(){
+  document.getElementById('refModal').classList.remove('show');
+}
+
+// ════════════════════════════════════════
+//  RESULTS
+// ════════════════════════════════════════
+function showResults(){
+  document.getElementById('loadingOverlay').classList.add('show');
+  setTimeout(()=>{
+    document.getElementById('loadingOverlay').classList.remove('show');
+    buildResults();
+    document.getElementById('progress-bar').style.width='100%';
+    showScreen('screen-result');
+  },1600);
+}
+
+function getAreaScore(areaId){
+  const area=AREAS.find(a=>a.id===areaId);
+  let total=0;
+  area.dims.forEach((dim,di)=>{
+    dim.questions.forEach((_,qi)=>{
+      total+=(answers[`${areaId}-${di}-${qi}`]||1);
+    });
+  });
+  return total; // max 32
+}
+
+function getDimScore(areaId,dimIdx){
+  const area=AREAS.find(a=>a.id===areaId);
+  let s=0;
+  area.dims[dimIdx].questions.forEach((_,qi)=>{
+    s+=(answers[`${areaId}-${dimIdx}-${qi}`]||1);
+  });
+  return s; // max 8
+}
+
+function pct(score,max){return Math.round((score/max)*100);}
+
+function getRiskLevel(p){
+  if(p<=40) return {label:'위험',cls:'risk-high',color:'#EF4444'};
+  if(p<=60) return {label:'주의',cls:'risk-warn',color:'#F97316'};
+  if(p<=80) return {label:'양호',cls:'risk-low',color:'#22C55E'};
+  return {label:'우수',cls:'risk-best',color:'#3B82F6'};
+}
+
+function buildResults(){
+  // Scores
+  const areaScores=AREAS.map(a=>({...a,score:getAreaScore(a.id),pctVal:pct(getAreaScore(a.id),32)}));
+  const totalScore=areaScores.reduce((s,a)=>s+a.score,0);
+
+  // Total display
+  document.getElementById('result-total').textContent=totalScore;
+  const totalPct=pct(totalScore,256);
+  let grade,msg;
+  if(totalPct>=80){grade='🏆 우수';msg='건강 관리가 전반적으로 잘 되고 있습니다! 최약점을 보완하면 더 완벽해집니다.';}
+  else if(totalPct>=65){grade='✅ 양호';msg='대부분 영역이 양호합니다. 아래 취약 영역에 집중 투자해보세요.';}
+  else if(totalPct>=50){grade='⚠️ 주의';msg='절반 이상의 영역에서 개선이 필요합니다. 순위가 낮은 영역부터 시작하세요.';}
+  else{grade='🚨 위험';msg='여러 영역에서 만성질환 위험 요인이 발견됩니다. 즉시 관리를 시작하세요!';}
+  document.getElementById('result-grade-text').textContent=`${grade} (${totalPct}%)`;
+  document.getElementById('result-msg').textContent=msg;
+
+  // Weak ranking (bottom 3)
+  const sorted=[...areaScores].sort((a,b)=>a.pctVal-b.pctVal);
+  const top3=sorted.slice(0,3);
+  const rankEl=document.getElementById('weak-rank-items');
+  rankEl.innerHTML='';
+  const rankLabels=['1위 최약점','2위 취약','3위 관리필요'];
+  const rankColors=['rank-1','rank-2','rank-3'];
+  top3.forEach((a,i)=>{
+    const risk=getRiskLevel(a.pctVal);
+    const div=document.createElement('div');
+    div.className=`rank-item ${rankColors[i]}`;
+    div.innerHTML=`
+      <div class="rank-badge">${i+1}</div>
+      <div class="rank-content" style="flex:1">
+        <h4>${a.icon} ${a.name} — ${a.sub} <span class="risk-badge ${risk.cls}">${risk.label} ${a.pctVal}%</span></h4>
+        <div class="rank-score">점수: ${a.score}/32점 | 전체 ${a.pctVal}% 달성</div>
+        <div class="rank-tip">💡 ${getWeakTip(a.id)}</div>
+      </div>`;
+    rankEl.appendChild(div);
+  });
+
+  // Score table
+  const rowsEl=document.getElementById('score-rows');
+  rowsEl.innerHTML='';
+  areaScores.forEach(a=>{
+    const risk=getRiskLevel(a.pctVal);
+    const dimScores=a.dims.map((_,di)=>getDimScore(a.id,di));
+    const row=document.createElement('div');
+    row.className='score-row';
+    row.innerHTML=`
+      <div class="score-row-top">
+        <div class="area-label">${a.icon} ${a.name}</div>
+        <span class="risk-badge ${risk.cls}">${risk.label}</span>
+        <div class="score-pct">${a.score}/32</div>
+      </div>
+      <div class="area-bar-wrap"><div class="area-bar" style="width:${a.pctVal}%;background:${a.color}"></div></div>
+      <div class="sub-bars">
+        ${a.dims.map((d,di)=>{
+          const sp=pct(dimScores[di],8);
+          return `<div class="sub-bar-item">
+            <div class="sb-label">${d.letter}. ${d.name.slice(0,5)}</div>
+            <div class="sb-fill-wrap"><div class="sb-fill" style="width:${sp}%;background:${a.color}80"></div></div>
+            <div style="font-size:9px;color:var(--text-light);text-align:center;margin-top:2px">${dimScores[di]}/8</div>
+          </div>`;}).join('')}
+      </div>`;
+    rowsEl.appendChild(row);
+  });
+
+  // Action items (top 3 weak areas)
+  const actEl=document.getElementById('action-items');
+  actEl.innerHTML='';
+  top3.forEach(a=>{
+    const acts=getActionItems(a.id);
+    const div=document.createElement('div');
+    div.className='action-item';
+    div.innerHTML=`
+      <div class="ai-icon">${a.icon}</div>
+      <div class="ai-text">
+        <h4>${a.name} 즉시 실천 1가지</h4>
+        <p>${acts}</p>
+      </div>`;
+    actEl.appendChild(div);
+  });
+
+  // Evidence
+  buildEvidence();
+
+  // Radar
+  setTimeout(()=>drawRadar(areaScores),200);
+}
+
+function getWeakTip(id){
+  const tips={
+    1:'채소→단백질→탄수화물 순서로 먹기부터 시작하세요. 야식과 정제 탄수화물만 줄여도 혈당·체중이 달라집니다.',
+    2:'오늘 당장 만보계 앱을 설치하고 7,000보를 목표로 설정하세요. 30~40분마다 일어서는 알람도 함께 설정하세요.',
+    3:'오늘 밤부터 취침 1시간 전 스마트폰을 끄고, 오후 2시 이후 카페인을 끊어보세요. 1주일이면 수면 질이 달라집니다.',
+    4:'스트레스를 받을 때 음식으로 풀지 않겠다는 규칙 하나만 만들어보세요. 산책 5분이 폭식보다 훨씬 효과적입니다.',
+    5:'냉장고와 주방에서 고열량 간식을 치우고, 운동화를 현관 잘 보이는 곳에 놓아두세요. 환경이 습관을 만듭니다.',
+    6:'건강 목표를 가족 1명에게 공유하고 응원을 부탁해보세요. 사회적 지지가 혼자 의지력에 의존하는 것보다 2배 효과적입니다.',
+    7:'이번 주 건강검진 결과표를 꺼내 혈당·혈압·콜레스테롤·허리둘레 수치가 정상 범위인지 직접 확인해보세요.',
+    8:'이번 주 화면 없는 여가 활동 1가지를 30분 이상 실천해보세요. 산책·독서·요리·악기 등 몸을 쓰는 취미가 우선입니다.'
+  };
+  return tips[id]||'해당 영역의 가장 낮은 세부 차원부터 집중 개선하세요.';
+}
+
+function getActionItems(id){
+  const actions={
+    1:'<strong>내일 식사부터</strong> 채소 반찬을 먼저 다 먹고, 그다음 단백질, 마지막에 밥을 먹는 순서를 실천해보세요. 혈당 스파이크가 최대 40% 감소합니다.',
+    2:'<strong>지금 바로</strong> 스마트폰에 "30분마다 일어서기" 알람을 설정하세요. 그리고 오늘 귀갓길에 한 정거장 먼저 내려 걷기를 실천해보세요.',
+    3:'<strong>오늘 밤</strong> 침실에서 스마트폰을 내보내거나 화면을 뒤집어두세요. 취침 1시간 전부터 화면 차단 + 오후 2시 이후 카페인 제로를 시작해보세요.',
+    4:'<strong>스트레스 신호 감지 즉시</strong> 냉장고 대신 신발을 신어보세요. 5분 산책이 폭식 충동을 90% 이상 줄인다는 연구가 있습니다.',
+    5:'<strong>오늘 저녁</strong> 주방 서랍과 냉장고에서 고열량 간식을 전부 꺼내 눈에 안 보이는 곳에 두거나 버리세요. 과일과 견과류를 보기 좋은 자리에 올려두세요.',
+    6:'<strong>오늘 중으로</strong> 가족·친구에게 "나 지금 건강 관리 시작하려고 해, 응원해줘"라고 문자 1개를 보내세요. 공개 선언은 실천율을 33% 높입니다.',
+    7:'<strong>이번 주 안에</strong> 가장 최근 건강검진 결과표를 꺼내 혈당(공복 100mg/dL 미만), 혈압(120/80mmHg 미만), 허리둘레(남 90cm, 여 85cm 미만) 기준과 내 수치를 직접 비교해보세요.',
+    8:'<strong>이번 주말</strong> 스마트폰 없이 30분 이상 산책 또는 독서를 해보세요. 이 1가지만으로도 코르티솔이 감소하고 회복감이 올라옵니다.'
+  };
+  return actions[id]||'해당 영역의 세부 차원 점수를 확인하고 가장 낮은 곳부터 집중 개선하세요.';
+}
+
+function buildEvidence(){
+  const el=document.getElementById('ev-content');
+  el.innerHTML='';
+  AREAS.forEach(a=>{
+    const block=document.createElement('div');
+    block.className='ev-area-block';
+    block.innerHTML=`<h4>${a.icon} ${a.name} — ${a.sub}</h4>`;
+    a.dims.forEach(d=>{
+      const ref=document.createElement('div');
+      ref.className='ev-ref';
+      ref.innerHTML=`<strong>[${d.letter}] ${d.name}</strong> — ${d.ref}`;
+      block.appendChild(ref);
+    });
+    el.appendChild(block);
+  });
+}
+
+function toggleEvidence(){
+  const toggle=document.getElementById('ev-toggle');
+  const content=document.getElementById('ev-content');
+  toggle.classList.toggle('open');
+  content.classList.toggle('show');
+}
+
+function updateName(){
+  // placeholder for name personalization
+}
+
+// ════════════════════════════════════════
+//  RADAR CHART
+// ════════════════════════════════════════
+// ════════════════════════════════════════
+//  SHARE FUNCTIONS
+// ════════════════════════════════════════
+function initKakao(){
+  if(window.Kakao && !Kakao.isInitialized()){
+    // 카카오 개발자 앱 JS키 입력 필요 — GitHub Pages 배포 후 설정
+    // Kakao.init('YOUR_KAKAO_JS_KEY');
+  }
+}
+
+function shareKakao(){
+  const url = window.location.href;
+  const title = '🌿 건강만다라 만성질환 예방 진단';
+  const desc = '당뇨·고혈압·비만을 유발하는 내 삶의 최약점을 찾아드립니다 | 8영역 64문항';
+  // 카카오 SDK 미설정 시 링크 공유로 대체
+  if(window.Kakao && Kakao.isInitialized()){
+    Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: title,
+        description: desc,
+        imageUrl: 'https://ufoacademy.github.io/health-mandala/preview.jpg',
+        link: { mobileWebUrl: url, webUrl: url }
+      },
+      buttons:[{title:'진단하러 가기', link:{mobileWebUrl:url,webUrl:url}}]
+    });
+  } else {
+    // 카카오톡 앱으로 직접 공유 (모바일)
+    const kakaoUrl = `kakaotalk://msg/send?text=${encodeURIComponent(title + '\n' + desc + '\n' + url)}`;
+    const fallback = `https://sharer.kakao.com/talk/friends/picker/link?app_key=&link_ver=4.0&template_id=&url=${encodeURIComponent(url)}`;
+    if(/Android|iPhone|iPad/i.test(navigator.userAgent)){
+      window.location.href = kakaoUrl;
+      setTimeout(()=>{ copyLink(); }, 1500);
+    } else {
+      copyLink();
+    }
+  }
+}
+
+function copyLink(){
+  const url = window.location.href;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(()=>{
+      showToast('🔗 링크가 복사되었어요! 카카오톡에 붙여넣기 하세요.');
+    });
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('🔗 링크가 복사되었어요! 카카오톡에 붙여넣기 하세요.');
+  }
+}
+
+function showToast(msg){
+  let toast = document.getElementById('toast-msg');
+  if(!toast){
+    toast = document.createElement('div');
+    toast.id = 'toast-msg';
+    toast.style.cssText = `position:fixed;bottom:80px;left:50%;transform:translateX(-50%);
+      background:#1B2E22;color:#fff;padding:12px 20px;border-radius:24px;
+      font-size:13px;font-weight:600;z-index:9999;white-space:nowrap;
+      box-shadow:0 4px 20px rgba(0,0,0,.3);font-family:'Noto Sans KR',sans-serif;`;
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.style.opacity = '1';
+  setTimeout(()=>{ toast.style.opacity='0'; }, 3000);
+}
+
+function drawRadar(areaScores){
+  const canvas=document.getElementById('radarCanvas');
+  if(!canvas) return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width, H=canvas.height;
+  const cx=W/2, cy=H/2, r=Math.min(W,H)/2-40;
+  const n=8;
+  const angles=Array.from({length:n},(_,i)=>((2*Math.PI/n)*i)-Math.PI/2);
+
+  ctx.clearRect(0,0,W,H);
+
+  // Grid
+  for(let level=1;level<=4;level++){
+    ctx.beginPath();
+    angles.forEach((angle,i)=>{
+      const x=cx+Math.cos(angle)*(r*(level/4));
+      const y=cy+Math.sin(angle)*(r*(level/4));
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    });
+    ctx.closePath();
+    ctx.strokeStyle=`rgba(45,106,79,${0.1+level*0.05})`;
+    ctx.lineWidth=1;
+    ctx.stroke();
+    ctx.fillStyle='rgba(240,250,243,0.3)';
+    ctx.fill();
+  }
+
+  // Axes
+  angles.forEach(angle=>{
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.lineTo(cx+Math.cos(angle)*r, cy+Math.sin(angle)*r);
+    ctx.strokeStyle='rgba(45,106,79,0.2)';
+    ctx.lineWidth=1;
+    ctx.stroke();
+  });
+
+  // Data polygon
+  ctx.beginPath();
+  areaScores.forEach((a,i)=>{
+    const ratio=a.score/32;
+    const x=cx+Math.cos(angles[i])*r*ratio;
+    const y=cy+Math.sin(angles[i])*r*ratio;
+    if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  ctx.closePath();
+  ctx.fillStyle='rgba(82,183,136,0.3)';
+  ctx.fill();
+  ctx.strokeStyle='rgba(45,106,79,0.9)';
+  ctx.lineWidth=2.5;
+  ctx.stroke();
+
+  // Dots
+  areaScores.forEach((a,i)=>{
+    const ratio=a.score/32;
+    const x=cx+Math.cos(angles[i])*r*ratio;
+    const y=cy+Math.sin(angles[i])*r*ratio;
+    ctx.beginPath();
+    ctx.arc(x,y,5,0,2*Math.PI);
+    ctx.fillStyle=a.color||'#2D6A4F';
+    ctx.fill();
+    ctx.strokeStyle='#fff';
+    ctx.lineWidth=2;
+    ctx.stroke();
+  });
+
+  // Labels
+  ctx.font='bold 12px "Noto Sans KR", sans-serif';
+  ctx.textAlign='center';
+  ctx.textBaseline='middle';
+  areaScores.forEach((a,i)=>{
+    const lx=cx+Math.cos(angles[i])*(r+26);
+    const ly=cy+Math.sin(angles[i])*(r+26);
+    ctx.fillStyle=a.color||'#2D6A4F';
+    ctx.fillText(`${a.icon}${a.name}`,lx,ly-5);
+    ctx.fillStyle='var(--text-light)';
+    ctx.font='10px "Noto Sans KR"';
+    ctx.fillText(`${a.pctVal}%`,lx,ly+8);
+    ctx.font='bold 12px "Noto Sans KR", sans-serif';
+  });
+}
+</script>
+</body>
+</html>
