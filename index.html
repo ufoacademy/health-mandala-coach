@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#2D6A4F">
-<title>건강만다라 | 만성질환 예방 최약점 진단</title>
+<meta name="theme-color" content="#2B5E7E">
+<title>건강만다라 | 코치용 진단 도구</title>
 <!-- 카카오톡 미리보기 (OG 태그) -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="🌿 건강만다라 만성질환 예방 진단">
-<meta property="og:description" content="당뇨·고혈압·비만을 유발하는 내 삶의 최약점을 찾아드립니다 | 8영역 96문항 근거 기반 진단">
+<meta property="og:title" content="🌿 건강만다라 만성질환 예방 진단 | 국제건강관리지도사협회">
+<meta property="og:description" content="국제건강관리지도사협회(IAHI) 공인 건강만다라 진단 도구 | 8영역 64문항 근거 기반">
 <meta property="og:image" content="https://ufoacademy.github.io/health-mandala-coach/og_banner.jpg">
 <meta name="description" content="만성질환 예방을 위한 8가지 건강 영역을 근거 기반 질문으로 정밀 진단합니다.">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --green-dark:#2D6A4F; --green-mid:#52B788; --green-light:#D8F3DC;
-  --green-pale:#F0FAF3; --amber:#E07B39; --amber-light:#FFF3E0;
-  --red:#DC2626; --orange:#EA580C; --blue:#1D4ED8;
-  --text-dark:#1B2E22; --text-mid:#4A5E52; --text-light:#8AA693;
-  --white:#FFFFFF; --bg:#F7FBF8;
-  --shadow:0 4px 24px rgba(45,106,79,.10);
+  --green-dark:#2B5E7E; --green-mid:#5A8FB1; --green-light:#CFE0EC;
+  --green-pale:#F2F8FC; --amber:#3F779B; --amber-light:#E7F0F7;
+  --red:#315E7B; --orange:#4F86A6; --blue:#2B5E7E;
+  --text-dark:#1E425B; --text-mid:#45657B; --text-light:#7C99AD;
+  --white:#FFFFFF; --bg:#EAF2F7;
+  --shadow:0 6px 24px rgba(43,94,126,.12);
   --radius:16px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -27,7 +27,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text
 
 /* ── PROGRESS BAR ── */
 #progress-bar{position:fixed;top:0;left:0;height:5px;
-  background:linear-gradient(90deg,var(--green-mid),var(--amber));
+  background:linear-gradient(90deg,#5A8FB1,#2B5E7E);
   width:0%;transition:width .4s ease;z-index:999;}
 
 /* ── HEADER ── */
@@ -43,7 +43,7 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 .container{max-width:700px;margin:0 auto;padding:24px 16px 80px;}
 
 /* ── INTRO ── */
-.intro-hero{background:linear-gradient(135deg,var(--green-dark),#1a5c3a);
+.intro-hero{background:linear-gradient(135deg,#2B5E7E,#1E425B);
   border-radius:var(--radius);padding:36px 24px;color:#fff;text-align:center;margin-bottom:24px;}
 .mandala-icon{width:76px;height:76px;margin:0 auto 18px;
   background:rgba(255,255,255,.15);border-radius:50%;
@@ -68,17 +68,17 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 .score-legend{display:flex;gap:6px;flex-wrap:wrap;}
 .score-badge{flex:1;min-width:100px;padding:10px 8px;border-radius:10px;text-align:center;font-size:11px;}
 .score-badge .num{font-size:20px;font-weight:900;}
-.s1{background:#FEE2E2;color:#991B1B;}
-.s2{background:#FEF3C7;color:#92400E;}
-.s3{background:#D1FAE5;color:#065F46;}
-.s4{background:#DBEAFE;color:#1E40AF;}
+.s1{background:#E7F0F7;color:#1E425B;}
+.s2{background:#DCEAF4;color:#244D69;}
+.s3{background:#CFE0EC;color:#1F4A66;}
+.s4{background:#A9C7DC;color:#173C54;}
 
 .btn-start{width:100%;padding:18px;border:none;border-radius:var(--radius);
   background:linear-gradient(135deg,var(--green-dark),var(--green-mid));
   color:#fff;font-size:17px;font-weight:700;cursor:pointer;
-  box-shadow:0 6px 20px rgba(45,106,79,.35);
+  box-shadow:0 6px 20px rgba(43,94,126,.28);
   transition:transform .2s,box-shadow .2s;font-family:'Noto Sans KR',sans-serif;}
-.btn-start:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(45,106,79,.4);}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(43,94,126,.34);}
 .time-note{text-align:center;font-size:12px;color:var(--text-light);margin-top:8px;}
 .btn-quick-cta{width:100%;padding:15px;border:2px solid var(--green-mid);border-radius:var(--radius);
   background:#fff;color:var(--green-dark);font-size:14px;font-weight:700;cursor:pointer;
@@ -95,9 +95,9 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 .quick-cta-item{display:flex;align-items:center;gap:12px;padding:14px 16px;
   border-radius:14px;text-decoration:none;transition:all .2s;box-shadow:0 2px 12px rgba(0,0,0,.08);}
 .quick-cta-item:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.13);}
-.qc-1{background:linear-gradient(135deg,#1B4F8A,#0D3260);}
-.qc-2{background:linear-gradient(135deg,#1B4F8A,#0D3260);}
-.qc-3{background:linear-gradient(135deg,#1B4F8A,#0D3260);}
+.qc-1{background:linear-gradient(135deg,#2B5E7E,#1E425B);}
+.qc-2{background:linear-gradient(135deg,#4F86A6,#2F6787);}
+.qc-3{background:linear-gradient(135deg,#6B9FBE,#467A98);}
 .quick-cta-item .qc-icon{font-size:20px;width:36px;height:36px;border-radius:10px;
   background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .quick-cta-item .qc-text{flex:1;color:#fff;}
@@ -150,12 +150,12 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 .btn-prev,.btn-next{flex:1;padding:14px;border:none;border-radius:var(--radius);
   font-size:14px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;}
 .btn-prev{background:#fff;color:var(--text-mid);border:2px solid #E5EDE8;}
-.btn-next{background:var(--green-dark);color:#fff;box-shadow:0 4px 14px rgba(45,106,79,.3);}
+.btn-next{background:var(--green-dark);color:#fff;box-shadow:0 4px 14px rgba(43,94,126,.28);}
 .btn-next:hover{background:var(--green-mid);}
 .btn-next:disabled{background:#ccc;box-shadow:none;cursor:not-allowed;}
 
 /* ── RESULT ── */
-.result-hero{background:linear-gradient(135deg,var(--green-dark),#1A4731);
+.result-hero{background:linear-gradient(135deg,#2B5E7E,#1E425B);
   border-radius:var(--radius);padding:26px 22px;color:#fff;text-align:center;margin-bottom:22px;}
 .total-score{font-size:60px;font-weight:900;line-height:1;}
 .total-label{font-size:13px;opacity:.65;margin-top:4px;}
@@ -181,7 +181,7 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 /* ── WEAK RANKING ── */
 .weak-rank-section{background:#fff;border-radius:var(--radius);
   box-shadow:var(--shadow);overflow:hidden;margin-bottom:18px;}
-.weak-rank-header{background:linear-gradient(135deg,#7C3AED,#5B21B6);
+.weak-rank-header{background:linear-gradient(135deg,#2B5E7E,#1E425B);
   color:#fff;padding:14px 18px;}
 .weak-rank-header h3{font-size:14px;font-weight:700;margin-bottom:2px;}
 .weak-rank-header p{font-size:11px;opacity:.8;}
@@ -189,14 +189,14 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 .rank-item{display:flex;align-items:flex-start;gap:12px;
   padding:12px;border-radius:12px;margin-bottom:10px;}
 .rank-item:last-child{margin-bottom:0;}
-.rank-1{background:#FEF2F2;border:2px solid #FECACA;}
-.rank-2{background:#FFF7ED;border:2px solid #FED7AA;}
-.rank-3{background:#FFF9C4;border:2px solid #FDE68A;}
+.rank-1{background:#F4F9FC;border:2px solid #C7DBEA;}
+.rank-2{background:#EEF5FA;border:2px solid #B9D2E4;}
+.rank-3{background:#E7F0F7;border:2px solid #A9C7DC;}
 .rank-badge{width:34px;height:34px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;}
-.rank-1 .rank-badge{background:#EF4444;color:#fff;}
-.rank-2 .rank-badge{background:#F97316;color:#fff;}
-.rank-3 .rank-badge{background:#EAB308;color:#fff;}
+.rank-1 .rank-badge{background:#2B5E7E;color:#fff;}
+.rank-2 .rank-badge{background:#4F86A6;color:#fff;}
+.rank-3 .rank-badge{background:#6B9FBE;color:#fff;}
 .rank-content h4{font-size:13px;font-weight:700;color:var(--text-dark);margin-bottom:4px;}
 .rank-content .rank-score{font-size:11px;color:var(--text-mid);margin-bottom:5px;}
 .rank-content .rank-tip{font-size:12px;color:var(--text-mid);line-height:1.6;
@@ -220,10 +220,38 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 .sub-bar-item .sb-fill-wrap{height:5px;background:#F0F4F1;border-radius:3px;}
 .sub-bar-item .sb-fill{height:100%;border-radius:3px;transition:width 1s ease;}
 .risk-badge{display:inline-block;padding:3px 9px;border-radius:12px;font-size:10px;font-weight:700;margin-left:6px;}
-.risk-high{background:#FEE2E2;color:#991B1B;}
-.risk-warn{background:#FEF3C7;color:#92400E;}
-.risk-low{background:#D1FAE5;color:#065F46;}
-.risk-best{background:#DBEAFE;color:#1E40AF;}
+.risk-high{background:#DCEAF4;color:#1E425B;}
+.risk-warn{background:#CFE0EC;color:#244D69;}
+.risk-low{background:#BFD6E6;color:#1F4A66;}
+.risk-best{background:#A9C7DC;color:#173C54;}
+
+/* ── AREA INTERPRETATION ── */
+.area-insight-section{background:#fff;border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;margin-bottom:18px;}
+.area-insight-header{background:linear-gradient(135deg,#2B5E7E,#1E425B);
+  color:#fff;padding:14px 18px;}
+.area-insight-header h3{font-size:14px;font-weight:700;margin-bottom:2px;}
+.area-insight-header p{font-size:11px;opacity:.85;line-height:1.5;}
+.area-insight-grid{display:grid;grid-template-columns:1fr;gap:12px;padding:16px;}
+.area-insight-card{border-radius:14px;padding:14px;border:2px solid #E5EDE8;background:#fff;}
+.area-insight-card.strength{background:#F4F9FC;border-color:#C7DBEA;}
+.area-insight-card.caution{background:#EEF5FA;border-color:#B9D2E4;}
+.area-insight-card.weak{background:#E7F0F7;border-color:#A9C7DC;}
+.area-insight-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;}
+.area-insight-title{font-size:13px;font-weight:800;color:var(--text-dark);}
+.area-insight-score{font-size:11px;color:var(--text-light);margin-bottom:8px;}
+.area-insight-summary{font-size:12px;color:var(--text-mid);line-height:1.7;margin-bottom:10px;}
+.area-insight-focus{font-size:11px;color:var(--text-mid);background:rgba(255,255,255,.72);
+  border-radius:10px;padding:8px 10px;margin-bottom:10px;}
+.area-insight-focus strong{color:var(--text-dark);}
+.area-insight-suggestion{padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.82);}
+.area-insight-suggestion strong{display:block;font-size:11px;color:var(--green-dark);margin-bottom:4px;}
+.area-insight-suggestion span{font-size:11px;color:var(--text-mid);line-height:1.7;display:block;}
+.status-chip{display:inline-flex;align-items:center;justify-content:center;padding:4px 10px;border-radius:999px;font-size:10px;font-weight:800;white-space:nowrap;}
+.status-chip.strength{background:#DCEAF4;color:#1E425B;}
+.status-chip.caution{background:#CFE0EC;color:#244D69;}
+.status-chip.weak{background:#BFD6E6;color:#173C54;}
+
 
 /* ── ACTION PLAN ── */
 .action-section{background:#fff;border-radius:var(--radius);
@@ -261,9 +289,9 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 .cta-card{display:flex;align-items:center;gap:14px;padding:18px;border-radius:var(--radius);
   text-decoration:none;transition:all .25s;box-shadow:var(--shadow);}
 .cta-card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.15);}
-.cta-1{background:linear-gradient(135deg,#1B4F8A,#0D3260);}
-.cta-2{background:linear-gradient(135deg,#1B4F8A,#0D3260);}
-.cta-3{background:linear-gradient(135deg,#1B4F8A,#0D3260);}
+.cta-1{background:linear-gradient(135deg,#2B5E7E,#1E425B);}
+.cta-2{background:linear-gradient(135deg,#4F86A6,#2F6787);}
+.cta-3{background:linear-gradient(135deg,#6B9FBE,#467A98);}
 .cta-icon{width:48px;height:48px;border-radius:12px;
   background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
 .cta-text{flex:1;color:#fff;}
@@ -273,10 +301,10 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 .cta-arrow{color:#fff;opacity:.65;font-size:18px;}
 
 .share-btn{width:100%;padding:16px;border:none;border-radius:var(--radius);
-  background:linear-gradient(135deg,#FEE500,#F5D800);
-  color:#3C1E1E;font-size:15px;font-weight:700;cursor:pointer;
+  background:linear-gradient(135deg,#5A8FB1,#2B5E7E);
+  color:#FFFFFF;font-size:15px;font-weight:700;cursor:pointer;
   display:flex;align-items:center;justify-content:center;gap:8px;
-  box-shadow:0 4px 14px rgba(254,229,0,.4);
+  box-shadow:0 4px 14px rgba(43,94,126,.28);
   font-family:'Noto Sans KR',sans-serif;margin-bottom:10px;transition:all .2s;}
 .share-btn:hover{transform:translateY(-2px);}
 .share-link-btn{width:100%;padding:14px;border:2px solid var(--green-mid);border-radius:var(--radius);
@@ -295,12 +323,12 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 .modal-box h3{font-size:15px;font-weight:700;color:var(--green-dark);margin-bottom:12px;}
 .modal-box p{font-size:13px;color:var(--text-mid);line-height:1.7;margin-bottom:10px;}
 .modal-box .close-btn{width:100%;padding:12px;border:none;border-radius:10px;
-  background:var(--green-dark);color:#fff;font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;
+  background:linear-gradient(135deg,#2B5E7E,#1E425B);color:#fff;font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;
   font-family:'Noto Sans KR',sans-serif;}
 
 /* ── LOADING ── */
 .loading-overlay{display:none;position:fixed;inset:0;
-  background:rgba(45,106,79,.92);z-index:999;
+  background:rgba(43,94,126,.92);z-index:999;
   flex-direction:column;align-items:center;justify-content:center;color:#fff;}
 .loading-overlay.show{display:flex;}
 .spinner{width:48px;height:48px;border:4px solid rgba(255,255,255,.3);
@@ -308,6 +336,10 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ── MOBILE FULL OPTIMIZATION ── */
+@media(min-width:640px){
+  .area-insight-grid{grid-template-columns:repeat(2,1fr);}
+}
+
 @media(max-width:480px){
   .container{padding:16px 12px 100px;}
   header{padding:12px 16px;}
@@ -396,7 +428,7 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
       <h2>건강만다라 최약점 진단</h2>
       <p>만성질환 예방을 위한 8가지 건강 영역을<br>근거 기반 질문으로 정밀 진단합니다<br><br>
       <strong>당뇨·고혈압·비만·심혈관질환</strong>을 유발하는<br>내 삶의 가장 취약한 고리를 찾아드립니다</p>
-      <span class="intro-badge">📊 8영역 × 12문항 = 96문항 | 근거 기반 설계</span>
+      <span class="intro-badge">📊 8영역 × 8문항 = 64문항 | 근거 기반 설계</span>
     </div>
 
     <div class="area-grid">
@@ -428,19 +460,21 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
     </div>
 
     <button class="btn-start" onclick="startQuiz()">🌱 최약점 진단 시작하기</button>
-    <p class="time-note">⏱ 예상 소요 시간: 약 12~18분 | 총 96문항 | 영역별 4개 세부차원</p>
+    <p class="time-note">⏱ 예상 소요 시간: 약 8~12분 | 총 64문항 | 영역별 4개 세부차원</p>
 
-    <div class="quick-cta-divider">진단 없이 바로 이동하기</div>
-    <div class="quick-cta-cards">
-      <a href="https://pf.kakao.com/_Ulqxgn" target="_blank" rel="noopener noreferrer" class="quick-cta-item qc-1">
-        <div class="qc-icon">🏛️</div>
-        <div class="qc-text">
-          <span>Official</span>
-          <strong>국제건강관리지도사협회</strong>
-        </div>
-        <div class="qc-arrow">›</div>
-      </a>
-    </div>
+    <div class="quick-cta-divider">바로 채널 방문하기</div>
+    <a href="https://pf.kakao.com/_Ulqxgn" target="_blank" rel="noopener noreferrer" class="quick-cta-item" style="display:flex;align-items:center;gap:12px;padding:16px 18px;border-radius:14px;text-decoration:none;background:linear-gradient(135deg,#1A4B8A,#0E3270);box-shadow:0 4px 16px rgba(26,75,138,.35);transition:all .25s;margin-top:10px;">
+      <div style="width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">
+        🏛️
+      </div>
+      <div style="flex:1;color:#fff;">
+        <div style="font-size:9px;opacity:.75;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:3px;">Official</div>
+        <strong style="font-size:14px;font-weight:700;">국제건강관리지도사협회</strong>
+        <div style="font-size:11px;opacity:.8;margin-top:2px;">IAHI 카카오 채널 바로가기</div>
+      </div>
+      <div style="color:#fff;opacity:.65;font-size:18px;">›</div>
+    </a>
+
   </div>
 </div>
 
@@ -474,7 +508,7 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 
     <div class="result-hero">
       <div class="total-score" id="result-total">0</div>
-      <div class="total-label">/ 384점</div>
+      <div class="total-label">/ 256점</div>
       <div class="result-grade" id="result-grade-text">분석 중...</div>
       <div class="result-msg" id="result-msg"></div>
     </div>
@@ -498,8 +532,16 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
     </div>
 
     <div class="score-table">
-      <div class="score-table-header">📊 8영역 × 4세부차원 × 3문항 점수 분석</div>
+      <div class="score-table-header">📊 8영역 × 4세부차원 점수 분석</div>
       <div id="score-rows"></div>
+    </div>
+
+    <div class="area-insight-section">
+      <div class="area-insight-header">
+        <h3>🧭 8영역 자동 결과 해석</h3>
+        <p>각 영역 점수를 바탕으로 강점·주의·취약 상태를 자동 분류하고, 바로 실천할 행동 제안을 함께 보여줍니다.</p>
+      </div>
+      <div class="area-insight-grid" id="area-insight-grid"></div>
     </div>
 
     <div class="action-section">
@@ -515,41 +557,33 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
       <div class="evidence-content" id="ev-content"></div>
     </div>
 
-    <div class="cta-section">
+
+    <div class="cta-section" style="margin-bottom:20px;">
       <div class="cta-title">
-        <h3>지금 바로 건강을 바꾸는 첫 걸음</h3>
-        <p id="cta-subtitle">국제건강관리지도사협회와 함께 만성질환을 예방하세요</p>
+        <h3>국제건강관리지도사협회</h3>
+        <p>IAHI 공인 건강코치와 함께 건강을 관리하세요</p>
       </div>
       <div class="cta-cards">
-        <a href="https://pf.kakao.com/_Ulqxgn" target="_blank" rel="noopener noreferrer" class="cta-card cta-1">
+        <a href="https://pf.kakao.com/_Ulqxgn" target="_blank" rel="noopener noreferrer" class="cta-card" style="background:linear-gradient(135deg,#2B5E7E,#1E425B);">
           <div class="cta-icon">🏛️</div>
           <div class="cta-text">
             <div class="cta-tag">Official</div>
             <h4>국제건강관리지도사협회</h4>
-            <p>전문 건강관리 코치와 함께 내 건강을 체계적으로 관리하세요</p>
+            <p>IAHI 카카오 채널 바로가기</p>
           </div>
           <div class="cta-arrow">›</div>
         </a>
       </div>
     </div>
 
-    <div style="margin-top:8px;">
-      <button class="share-btn" onclick="shareKakao()">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.485 1.39 4.688 3.5 6.07L4.5 21l4.93-2.47A11.3 11.3 0 0012 18c5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg>
-        카카오톡으로 공유하기
-      </button>
-      <button class="share-link-btn" onclick="copyLink()">
-        🔗 링크 복사하기
-      </button>
-    </div>
     <div class="footer-note">
-      © 2025 건강이음센터. All Rights Reserved.<br>
-      본 진단은 의학적 진단을 대체하지 않습니다.
+      © 2025 국제건강관리지도사협회(IAHI). All Rights Reserved.<br>
+      본 진단은 생활 속 행동습관의 취약영역을 점검하는 도구이며, 의학적 진단을 대체하지 않습니다.
     </div>
 
     <div style="margin-top:18px;">
-      <button onclick="resetQuiz()" style="width:100%;padding:12px;background:#fff;
-        border:2px solid #E5EDE8;border-radius:12px;color:var(--text-mid);
+      <button onclick="resetQuiz()" style="width:100%;padding:12px;background:#F2F8FC;
+        border:2px solid #A9C7DC;border-radius:12px;color:#1E425B;
         font-size:13px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">🔄 처음부터 다시하기</button>
     </div>
   </div>
@@ -559,494 +593,409 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" crossorigin="anonymous"></script>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ════════════════════════════════════════
-//  DATA — 8영역 × 4세부차원 × 3문항 = 96문항
+//  DATA — 8영역 × 4세부차원 × 2문항 = 64문항
 // ════════════════════════════════════════
 const AREAS = [
-{
-  id:1, icon:'🍎', name:'식(食)', sub:'영양·식사 패턴',
-  focus:'지금 내 식사는 혈당·혈압·체중(복부비만) 위험요인을 줄이는 방향으로 "패턴"이 잡혀 있는가?',
-  color:'#16A34A',
-  dims:[
-    {
-      letter:'A', name:'혈당 관리 패턴',
-      ref:'채소 우선 식사 순서 & 저GI 식품 선택',
-      refDetail:`<strong>① 식사 순서 연구 (Kuwata M. et al., 2016, Diabetes Care)</strong><br>
-        채소→단백질→탄수화물 순서로 먹을 때 식후 혈당 최대 40% 감소 확인.<br><br>
-        <strong>② 저GI 식이 (Jenkins DJ. et al., Lancet 1981)</strong><br>
-        정제 탄수화물 대신 통곡물·잡곡 섭취 시 혈당 및 인슐린 반응 유의미하게 감소.<br><br>
-        <strong>③ 한국인 대사증후군 연구 (국민건강영양조사, 2022)</strong><br>
-        흰쌀 위주 식사자는 잡곡 식사자 대비 당뇨 전단계 위험 1.4배 증가.`,
-      questions:[
-        '나는 식사 시 채소·나물을 먼저, 단백질(고기·생선·두부) 다음, 탄수화물(밥·빵)을 마지막에 먹는 순서를 실천한다',
-        '흰쌀밥·흰빵 등 정제 탄수화물 대신 잡곡밥·현미·통밀을 주식으로 주 5회 이상 선택한다',
-        '식후 10~15분 이내에 짧은 산책이나 가벼운 스트레칭을 하여 식후 혈당 급상승을 억제하는 습관이 있다'
-      ]
-    },
-    {
-      letter:'B', name:'혈압 관리 패턴',
-      ref:'나트륨 감소 & 당 음료 제한',
-      refDetail:`<strong>① WHO 소금 섭취 권고 (2023)</strong><br>
-        하루 나트륨 2,000mg(소금 5g) 이하 권고. 한국인 평균 섭취량은 권고량의 1.8배(2022 국민건강통계).<br><br>
-        <strong>② DASH 식이 연구 (Appel LJ. et al., NEJM 1997)</strong><br>
-        나트륨 줄이고 채소·과일·저지방 유제품 늘리면 수축기 혈압 11mmHg 감소.<br><br>
-        <strong>③ 가당 음료와 혈압 (Malik VS. et al., Circulation 2010)</strong><br>
-        가당 음료 1잔/일 증가 시 고혈압 위험 16% 증가.`,
-      questions:[
-        '나트륨을 줄이기 위해 국물을 절반 이하로 마시거나, 음식을 주문·조리 시 "싱겁게" 요청하는 습관이 있다',
-        '단 음료(탄산음료·설탕 커피·주스·에너지음료)를 하루 1잔 이하로 제한한다',
-        '칼륨이 풍부한 채소(시금치·바나나·고구마·감자 등)를 매일 2가지 이상 섭취하여 혈압 조절에 신경 쓴다'
-      ]
-    },
-    {
-      letter:'C', name:'체중·복부비만 관리 패턴',
-      ref:'야식 제한 & 식사량 조절',
-      refDetail:`<strong>① 야식과 복부비만 (Yoshida J. et al., Nutrients 2018)</strong><br>
-        밤 9시 이후 식사 습관은 복부지방·BMI 증가와 유의미하게 관련(OR 1.34).<br><br>
-        <strong>② 오키나와 '하라 하치 분메' 원칙</strong><br>
-        배부름 80%에서 멈추는 식습관이 칼로리 섭취를 20~30% 줄여 체중 유지에 기여.<br><br>
-        <strong>③ 시간제한 식이 (Sutton EF. et al., Cell Metabolism 2018)</strong><br>
-        늦은 시간 식사 제한만으로도 인슐린 저항성·혈압·산화스트레스 유의미하게 개선.`,
-      questions:[
-        '야식(오후 9시 이후 음식 섭취)을 주 1회 이하로 제한하고, 취침 2시간 전에는 음식을 먹지 않는다',
-        '과식하지 않고 배부름 80% 수준("조금 더 먹을 수 있지만 멈추는" 상태)에서 식사를 마치는 습관이 있다',
-        '하루 식사를 아침·점심·저녁 규칙적인 시간에 섭취하며, 식사를 거르거나 한 끼에 몰아먹는 패턴이 없다'
-      ]
-    },
-    {
-      letter:'D', name:'식사 질·구성 패턴',
-      ref:'가공식품 감소 & 단백질 충분 섭취',
-      refDetail:`<strong>① 초가공식품과 만성질환 (Fiolet T. et al., BMJ 2018)</strong><br>
-        초가공식품 섭취 10% 증가 시 암 발생 위험 12%, 심혈관질환 위험 13% 증가.<br><br>
-        <strong>② 단백질 섭취와 근감소·비만 (대한비만학회 진료지침 2023)</strong><br>
-        체중 1kg당 1.2~1.5g 단백질 섭취가 근육 유지 및 포만감 향상에 효과적.<br><br>
-        <strong>③ 식품 다양성 지수 (FAO, 2023)</strong><br>
-        식품 다양성이 높을수록 미량영양소 결핍·만성질환 위험 감소.`,
-      questions:[
-        '가공식품·인스턴트·패스트푸드(라면·햄버거·과자·냉동식품 등)를 주 3회 이하로 섭취한다',
-        '매끼 단백질 식품(달걀·두부·생선·닭가슴살·콩류 등)을 손바닥 크기 분량(약 100~150g) 이상 섭취한다',
-        '한 끼 식사에 5가지 이상의 색깔이 다른 채소·과일을 포함시켜 식품 다양성을 높이는 습관이 있다'
-      ]
-    }
-  ]
-},
-{
-  id:2, icon:'🏃', name:'동(動)', sub:'신체활동 설계',
-  focus:'일주일 기준 권장량 수준의 활동을 하고 있으며, 내 생활 속에 "움직임이 자동으로 들어가게" 설계되어 있는가?',
-  color:'#2563EB',
-  dims:[
-    {
-      letter:'A', name:'유산소 운동량',
-      ref:'WHO·AHA 주 150분 중강도 유산소 권고',
-      refDetail:`<strong>① WHO 신체활동 가이드라인 (2020)</strong><br>
-        성인은 주당 중강도 유산소 150~300분 또는 고강도 75~150분 권고.<br><br>
-        <strong>② 미국심장학회(AHA) 권고 (2018)</strong><br>
-        주 150분 이상 중강도 운동 시 심혈관질환 위험 35%, 제2형 당뇨 위험 26% 감소.<br><br>
-        <strong>③ 대한당뇨병학회 진료지침 (2023)</strong><br>
-        당뇨 전단계 및 고위험군: 주 150분 이상 유산소 + 주 2회 이상 근력 운동 권고.`,
-      questions:[
-        '나는 일주일에 중강도 유산소 운동(빠른 걷기·자전거·수영·댄스 등 숨이 조금 차는 강도)을 150분 이상 한다',
-        '운동 계획이 달력·앱·다이어리에 고정 일정으로 등록되어 있고, 대부분 이행하고 있다',
-        '운동 시 목표 심박수(최대 심박수의 50~70%) 범위에서 운동하고 있으며, 강도를 의식적으로 조절한다'
-      ]
-    },
-    {
-      letter:'B', name:'근력 운동 & 일일 걸음수',
-      ref:'주 2회 이상 근력 운동 & 7,000보 목표',
-      refDetail:`<strong>① 근감소증 예방 (Cruz-Jentoft AJ. et al., Age Ageing 2019)</strong><br>
-        40대 이후 근육량 연 1~2% 감소. 주 2회 이상 저항 운동으로 근감소 예방 및 기초대사량 유지.<br><br>
-        <strong>② 만보 vs 7,000보 연구 (Paluch AE. et al., JAMA Network Open 2021)</strong><br>
-        하루 7,000보 이상 걷는 사람은 모든 원인 사망 위험이 50~70% 감소.`,
-      questions:[
-        '근력 운동(스쿼트·팔굽혀펴기·아령·플랭크 등)을 주 2회 이상 실시한다',
-        '하루 총 걸음수가 7,000보 이상이 되도록 스마트워치·만보계·앱 등으로 확인·관리한다',
-        '근력 운동 시 주요 근육군(하체·코어·상체)을 골고루 포함하여 전신 근력을 균형 있게 강화한다'
-      ]
-    },
-    {
-      letter:'C', name:'일상 활동 설계 (생활 속 움직임)',
-      ref:'NEAT 개념 — 계단·이동 틈새 운동',
-      refDetail:`<strong>① NEAT 이론 (Levine JA., Science 2005)</strong><br>
-        NEAT(비운동성 활동 열생산): 일상 움직임이 총 에너지 소비의 15~50% 차지.<br>
-        계단 이용·서서 일하기 등 생활 속 움직임만으로도 연간 수kg 체중 조절 효과.<br><br>
-        <strong>② 자기 모니터링 효과 (Michie S. et al., Health Psychology 2009)</strong><br>
-        활동량 기록 및 피드백이 신체활동 증가에 가장 효과적인 행동변화 전략.`,
-      questions:[
-        '엘리베이터 대신 계단 이용, 한 정거장 먼저 내리기, 점심 후 짧은 산책 등 이동 틈새 운동이 습관화되어 있다',
-        '스마트워치·만보계·건강 앱으로 활동량(걸음수·운동 시간)을 기록하고 주간 목표와 비교한다',
-        '가사 활동(청소·장보기·정원 가꾸기 등)을 신체 활동의 일환으로 의식하고, 일상적 이동을 최대한 걸어서 한다'
-      ]
-    },
-    {
-      letter:'D', name:'좌식 시간 차단',
-      ref:'장시간 앉기 독립적 위험요인',
-      refDetail:`<strong>① 좌식 행동과 사망위험 (Biswas A. et al., Annals IM 2015)</strong><br>
-        하루 8시간 이상 앉아 있는 사람은 규칙적 운동을 해도 사망위험 15~20% 증가.<br><br>
-        <strong>② 30분 인터럽트 전략 (Dunstan DW. et al., Diabetes Care 2012)</strong><br>
-        앉은 시간을 30분마다 2~3분 걷기로 중단 시 식후 혈당 24%, 인슐린 23% 감소.`,
-      questions:[
-        '앉아서 작업 중 30~40분마다 일어나 1~3분 걷거나 스트레칭을 하는 "좌식 중단 루틴"이 있다',
-        '운동하기 싫은 날에도 "최소 10분 걷기"라는 최소 활동 원칙을 지키는 습관이 있다',
-        'TV 시청·스마트폰 사용 시간 중 누워 있거나 앉아만 있지 않고, 간단한 스트레칭·발 동작 등을 병행한다'
-      ]
-    }
-  ]
-},
-{
-  id:3, icon:'😴', name:'휴(休)', sub:'수면·회복 관리',
-  focus:'내 수면은 회복을 만들어내는 수면요인(취침 전 화면·불안·야식·카페인 등)을 갖추고 있는가?',
-  color:'#7C3AED',
-  dims:[
-    {
-      letter:'A', name:'수면 시간 & 리듬',
-      ref:'성인 7~9시간 & 사회적 시차(Social Jetlag)',
-      refDetail:`<strong>① 미국수면재단(NSF) & 미국수면의학회(AASM) 권고 (2015)</strong><br>
-        성인(26~64세) 권장 수면: 7~9시간. 6시간 미만 지속 시 당뇨·고혈압·심혈관질환 위험 급증.<br><br>
-        <strong>② 사회적 시차(Social Jetlag) 연구 (Wittmann M. et al., Chronobiology Int 2006)</strong><br>
-        주말·평일 취침시간 차이 2시간 이상 시 비만 위험 33%, 인슐린 저항성 증가.`,
-      questions:[
-        '매일 7~8시간의 수면을 취하며, 주말에도 평일과 취침·기상 시간이 1시간 이내로 유지된다',
-        '수면 부족으로 인한 낮 시간 과도한 졸음·집중력 저하·극심한 피로가 주 2회 이상 발생하지 않는다',
-        '일정한 시간에 잠들기 위해 취침 30분 전부터 수면 준비 루틴(조명 낮추기·조용한 환경 만들기 등)을 실천한다'
-      ]
-    },
-    {
-      letter:'B', name:'수면 방해 요인 차단',
-      ref:'블루라이트·카페인·야식 차단',
-      refDetail:`<strong>① 블루라이트와 멜라토닌 (Czeisler CA., Science 2013)</strong><br>
-        취침 1시간 전 스마트폰 화면이 멜라토닌 분비를 50% 억제, 수면 잠복기 1시간 연장.<br><br>
-        <strong>② 카페인 반감기 (Drake C. et al., J Clin Sleep Med 2013)</strong><br>
-        오후 6시 카페인 섭취 시 수면 시간 1시간 단축 확인. 반감기 5~6시간.<br><br>
-        <strong>③ 야식과 수면 질 (Crispim CA. et al., Nutrients 2011)</strong><br>
-        취침 2시간 이내 야식은 코어 체온 유지로 서파(깊은) 수면을 방해.`,
-      questions:[
-        '취침 1시간 전부터 스마트폰·TV·태블릿 화면(블루라이트)을 끄거나 나이트모드로 전환한다',
-        '오후 2시 이후 카페인 섭취를 하지 않고, 취침 2시간 이내 야식도 거의 없다',
-        '음주 후 수면의 질이 나빠진다는 것을 인지하며, 수면 보조 목적의 음주(잠들기 위한 음주)를 하지 않는다'
-      ]
-    },
-    {
-      letter:'C', name:'수면 환경 & 입면 루틴',
-      ref:'수면 위생 (Sleep Hygiene) 표준 권고',
-      refDetail:`<strong>① 미국수면의학회(AASM) 수면 위생 가이드라인 (2023)</strong><br>
-        최적 수면 온도: 18~22도, 습도: 40~60%, 소음: 30dB 이하, 완전 암막 권고.<br><br>
-        <strong>② 인지행동치료(CBT-I) 근거 (Morin CM. et al., JAMA 1999)</strong><br>
-        취침 전 이완 루틴(독서·명상·가벼운 스트레칭)이 불안 기반 불면증에 가장 효과적.`,
-      questions:[
-        '침실은 어둡고 조용하며 온도 18~22도 수준의 수면 적합 환경을 유지한다',
-        '잠들기 전 불안·걱정이 수면을 방해하지 않도록 이완 루틴(독서·명상·가벼운 스트레칭 등)이 있다',
-        '침실은 수면과 휴식만을 위한 공간으로 유지하며, 침대에서 업무·식사·스마트폰 사용을 하지 않는다'
-      ]
-    },
-    {
-      letter:'D', name:'수면 질 & 회복감',
-      ref:'수면 효율 & 회복성 수면',
-      refDetail:`<strong>① 수면 효율과 건강 (Ohayon MM., Sleep Med Rev 2002)</strong><br>
-        수면 효율 85% 이상(잠자리에 있는 시간 대비 실제 수면 시간)이 양호한 수면 기준.<br><br>
-        <strong>② 수면 부족과 체중 (Spiegel K. et al., PLOS Med 2004)</strong><br>
-        수면 6시간 미만 시 식욕 촉진 호르몬(그렐린) 28% 증가, 포만 호르몬(렙틴) 18% 감소.`,
-      questions:[
-        '잠자리에 누운 후 30분 이내에 잠들고, 자다가 자주 깨거나 새벽에 오래 깨어있지 않는다',
-        '아침에 일어났을 때 몸이 개운하고, 하루 활동에 지장 없는 충분한 회복감을 느낀다',
-        '코골이·수면 무호흡(숨 멎는 증상)·하지불안증후군 등 수면 장애 증상이 없거나 치료·관리 중이다'
-      ]
-    }
-  ]
-},
-{
-  id:4, icon:'💙', name:'심(心)', sub:'정서 조절',
-  focus:'내 스트레스·기분 상태는 수면·식욕·활동·관계를 무너뜨리지 않도록 관리되고 있는가?',
-  color:'#DB2777',
-  dims:[
-    {
-      letter:'A', name:'스트레스 & 식욕·식사',
-      ref:'정서적 식사(Emotional Eating)와 만성질환',
-      refDetail:`<strong>① 정서적 식사와 비만 (Macht M., Appetite 2008)</strong><br>
-        스트레스 시 고지방·고당 음식 선택 경향이 2.2배 증가. 코르티솔이 식욕·지방 축적 촉진.<br><br>
-        <strong>② 스트레스 코르티솔과 복부비만 (Epel ES. et al., Psychosom Med 2000)</strong><br>
-        만성 스트레스 시 코르티솔 증가 → 복부(내장) 지방 선택적 증가 → 인슐린 저항성 악화.`,
-      questions:[
-        '스트레스를 받아도 폭식·야식·과음 등 음식으로 해소하지 않으며, 식사 패턴이 크게 흔들리지 않는다',
-        '감정 기복(우울·불안·짜증)이 심해도 식사량·식사 규칙성을 유지한다',
-        '스트레스가 고조될 때 음식 이외의 건강한 해소 방법(산책·음악감상·대화 등)을 자동적으로 선택한다'
-      ]
-    },
-    {
-      letter:'B', name:'스트레스 & 수면·신체활동',
-      ref:'스트레스-수면-운동 3방향 연결',
-      refDetail:`<strong>① 심리적 스트레스와 수면 (Hall M. et al., Psychosom Med 2000)</strong><br>
-        높은 일상 스트레스가 수면 개시 어려움, 수면 유지 장애와 직접 관련.<br><br>
-        <strong>② 운동과 정서 조절 (Salmon P., Clin Psychol Rev 2001)</strong><br>
-        규칙적 운동이 스트레스 반응성 감소, 기분 저하 시 운동 회피 악순환 차단이 핵심.`,
-      questions:[
-        '스트레스가 쌓여도 수면(잠들기 어려움·새벽 각성)에 큰 지장을 주지 않도록 관리된다',
-        '기분이 좋지 않거나 피곤한 날에도 계획된 신체 활동·운동을 대부분 실천한다',
-        '번아웃이나 극도의 피로감을 느낄 때 무리하지 않고 의도적인 휴식과 회복 시간을 확보한다'
-      ]
-    },
-    {
-      letter:'C', name:'스트레스 & 관계',
-      ref:'정서 조절과 사회적 관계 유지',
-      refDetail:`<strong>① 스트레스와 관계 갈등 (Kiecolt-Glaser JK., Psychosom Med 1999)</strong><br>
-        만성 스트레스가 관계 갈등을 증폭시키고, 관계 갈등이 다시 스트레스를 악화시키는 악순환.<br><br>
-        <strong>② 사회적 지지와 건강 (Uchino BN., Psychol Bull 2004)</strong><br>
-        사회적 지지가 코르티솔 반응을 완충하고, 스트레스 관련 만성질환 위험 감소.`,
-      questions:[
-        '기분이 나쁘거나 화가 나도 가족·지인에게 과도한 짜증·화풀이·단절 없이 관계를 유지한다',
-        '정서적으로 힘들 때 스스로 억누르지 않고 가족·친구·전문가에게 도움을 요청할 수 있다',
-        '갈등이 생겼을 때 회피하거나 폭발하지 않고, 감정을 정리한 후 대화로 해결하려는 노력을 한다'
-      ]
-    },
-    {
-      letter:'D', name:'정서 자기조절 능력',
-      ref:'PHQ-2 기반 우울·불안 선별 & 자기조절',
-      refDetail:`<strong>① PHQ-2 (Kroenke K., Medical Care 2003)</strong><br>
-        2주간 지속되는 무기력·우울·흥미 감소가 주요 우울증 선별 기준. 만성질환 위험 2~3배 증가.<br><br>
-        <strong>② 인지 재평가 전략 (Gross JJ., Psychol Inquiry 2001)</strong><br>
-        감정이 격해질 때 멈춤·호흡·재해석 등 자기조절 전략이 코르티솔 감소 및 혈압 안정에 기여.`,
-      questions:[
-        '감정이 격해졌을 때 잠시 멈추고 심호흡·산책·글쓰기 등으로 스스로 조절하는 나만의 방법이 있다',
-        '최근 2주간 지속적인 무기력감·우울·불안 없이 일상생활(식사·수면·활동·관계)이 가능하다',
-        '하루 중 감사함·즐거움·성취감 등 긍정적 감정을 의식적으로 인식하고 표현하는 습관이 있다'
-      ]
-    }
-  ]
-},
-{
-  id:5, icon:'🏡', name:'환(環)', sub:'생활환경 설계',
-  focus:'내 생활환경은 흡연·음주·좌식·야식·수면방해 같은 위험요인을 "유발"하는가, "차단"하는가?',
-  color:'#D97706',
-  dims:[
-    {
-      letter:'A', name:'흡연·음주 환경',
-      ref:'담배·알코올 환경 노출과 만성질환',
-      refDetail:`<strong>① WHO FCTC 담배 규제 협약 & IARC (2012)</strong><br>
-        간접흡연 포함 담배 연기는 그룹1 확정 발암물질. 하루 10개비 미만 흡연도 심혈관질환 위험 2배.<br><br>
-        <strong>② 알코올과 만성질환 (WHO, 2018; Shield KD. et al.)</strong><br>
-        음주 없는 수준이 가장 안전. 주 2회 이하·1회 2잔 이하도 암·간질환·고혈압 위험 증가.`,
-      questions:[
-        '현재 담배를 피우지 않고, 가정·직장 내 간접흡연 환경에 노출되지 않는다',
-        '음주는 주 2회 이하, 1회 2잔(순수알코올 20g) 이하로 제한되며, 과음을 유도하는 환경을 피한다',
-        '흡연·음주 유혹이 생기는 특정 상황(모임·스트레스·특정 장소)을 인식하고 사전에 대처 전략을 갖고 있다'
-      ]
-    },
-    {
-      letter:'B', name:'식품 환경 설계 (넛지)',
-      ref:'주방 환경 설계와 식행동 변화',
-      refDetail:`<strong>① 넛지 이론 (Thaler & Sunstein, "Nudge" 2008)</strong><br>
-        환경 설계(Default 변경)만으로 건강 행동을 30~40% 변화시킬 수 있음.<br><br>
-        <strong>② 주방 환경과 식품 선택 (Wansink B. et al., AJPM 2015)</brief><br>
-        과일·채소가 눈에 잘 보이는 위치에 있을 때 섭취 2.4배 증가. 고열량 간식이 없으면 섭취 70% 감소.`,
-      questions:[
-        '집안(주방·거실)에 고열량 간식·설탕 음료가 손에 닿는 곳에 없고, 건강 식품(과일·채소·견과류)이 눈에 잘 띄는 곳에 있다',
-        '야식을 유발하는 환경(야간 배달앱 알림·편의점 방문 습관)을 의식적으로 차단하고 있다',
-        '장을 볼 때 배부른 상태에서 쇼핑하거나 목록을 미리 작성하여 충동적인 고열량 식품 구매를 막는 전략이 있다'
-      ]
-    },
-    {
-      letter:'C', name:'수면 방해 & 좌식 환경 차단',
-      ref:'침실 환경 & 좌식 생활 설계',
-      refDetail:`<strong>① 침실 스마트폰과 수면 장애 (Hysing M. et al., BMJ Open 2015)</strong><br>
-        침실에 스마트폰을 두는 경우 수면 잠복기 증가, 총 수면 시간 감소.<br><br>
-        <strong>② 직장 좌식 환경 개선 (Biswas A., 2015 앞 동)</strong><br>
-        스탠딩 데스크·이동 동선 설계 등 환경 변경이 좌식 시간을 하루 77분 감소.`,
-      questions:[
-        '침실에는 TV·스마트폰 등 수면을 방해하는 기기가 없거나, 취침 전 완전히 끄는 규칙이 있다',
-        '앉아 있는 생활을 줄이기 위해 서서 일하기·이동 동선 설계·책상 정리 등 환경적 장치가 있다',
-        '스마트폰 화면 사용 시간 제한 앱이나 알림 설정을 통해 무의식적 과다 사용을 차단하는 장치가 있다'
-      ]
-    },
-    {
-      letter:'D', name:'건강 촉진 환경 설계',
-      ref:'행동 설계 — 쉽고 자동적인 건강 선택',
-      refDetail:`<strong>① 행동 설계(Behavior Design) (Fogg BJ., "Tiny Habits" 2020)</strong><br>
-        운동복·운동화가 눈에 보이는 곳에 준비되어 있을 때 운동 실행률 40% 증가.<br><br>
-        <strong>② 환경 재설계와 지속적 행동 변화 (Wood W. & Neal DT., Science 2016)</strong><br>
-        환경 변화가 의지력보다 습관 유지에 2~3배 효과적.`,
-      questions:[
-        '운동하기 쉬운 환경(운동화·운동복이 항상 준비된 상태, 집 근처 공원·체육시설 파악)이 갖춰져 있다',
-        '내 생활 전반이 건강한 선택을 쉽게, 나쁜 습관(흡연·과음·폭식·좌식)을 어렵게 만드는 방향으로 설계되어 있다',
-        '나쁜 습관을 유발하는 "트리거 환경"(특정 장소·시간·사람)을 파악하고, 그 상황을 바꾸거나 미리 피하는 전략이 있다'
-      ]
-    }
-  ]
-},
-{
-  id:6, icon:'👥', name:'연(連)', sub:'관계·지지망',
-  focus:'내 주변 관계망은 건강습관을 지지·동행해주고 있는가(상담·코칭 포함)?',
-  color:'#0891B2',
-  dims:[
-    {
-      letter:'A', name:'가족·친구 지지망',
-      ref:'사회적 지지와 사망위험',
-      refDetail:`<strong>① 사회적 고립과 사망위험 (Holt-Lunstad J. et al., PLOS Med 2010)</strong><br>
-        사회적 고립 및 외로움이 흡연에 맞먹는 사망위험 증가(OR 1.45). 강한 사회적 유대가 생존율 50% 향상.<br><br>
-        <strong>② 배우자·가족 지지와 만성질환 관리 (DiMatteo MR., Health Psychol 2004)</strong><br>
-        가족 지지가 있을 때 치료 순응도 및 건강 행동 실천율 19% 향상.`,
-      questions:[
-        '가족·친구 중 건강 목표(운동·식단 개선·금연·금주 등)를 함께 실천하거나 적극적으로 응원해주는 사람이 있다',
-        '내 건강 상태(검진 결과·체중 변화·건강 고민)를 솔직하게 나누고 의견을 들을 수 있는 가까운 사람이 있다',
-        '가족 중 만성질환(당뇨·고혈압·심혈관질환 등)이 있는 경우, 그 가족의 건강 관리를 함께 지원하고 있다'
-      ]
-    },
-    {
-      letter:'B', name:'전문가 연결',
-      ref:'전문가 코칭과 만성질환 예방 효과',
-      refDetail:`<strong>① 당뇨병 예방 프로그램 DPP (Knowler WC. et al., NEJM 2002)</strong><br>
-        전문가 코칭+생활습관 중재 시 당뇨 발생 위험 58% 감소 (메트포민 31%보다 효과적).<br><br>
-        <strong>② 건강코칭 메타분석 (Olsen JM. et al., JABFM 2014)</strong><br>
-        건강코칭 참여 시 HbA1c·혈압·BMI 유의미하게 감소. 전화 코칭도 효과 동등.`,
-      questions:[
-        '건강 문제(만성질환 전단계·체중 이상·검진 이상 소견)가 생겼을 때 상담할 전문가(의사·간호사·영양사·건강코치)가 있다',
-        '건강 코칭·상담·강좌 프로그램을 이용한 경험이 있거나, 적극적으로 활용할 의향이 있다',
-        '병원 방문 시 의사에게 생활습관(식사·운동·수면·스트레스)에 대해 적극적으로 질문하고 조언을 요청한다'
-      ]
-    },
-    {
-      letter:'C', name:'건강 커뮤니티 참여',
-      ref:'그룹 기반 건강 관리 효과',
-      refDetail:`<strong>① 그룹 기반 건강 중재 (Greaves CJ. et al., BMC Med 2011)</strong><br>
-        그룹 건강 프로그램 참여 시 개인 중재 대비 체중 감량 1.5배, 운동 지속률 2배 증가.<br><br>
-        <strong>② 또래 지지 모델 (Dennis CL., Can J Nurs Res 2003)</strong><br>
-        같은 목표를 가진 동료와의 교류가 자기효능감을 높여 건강 행동 지속률 증가.`,
-      questions:[
-        '건강 관련 모임·강좌·커뮤니티(운동 모임·건강독서클럽·건강강좌·온라인 커뮤니티 등)에 월 1회 이상 참여한다',
-        '건강 습관을 방해하거나 위험 행동(폭식·과음·흡연 등)을 권유하는 관계에서 적절히 거리를 두거나 조율할 수 있다',
-        '건강 목표를 달성한 사람의 경험담이나 성공 사례를 접하고 그것을 나의 동기부여로 활용한다'
-      ]
-    },
-    {
-      letter:'D', name:'사회적 건강 동행 문화',
-      ref:'사회적 규범과 건강 행동 확산',
-      refDetail:`<strong>① 사회적 네트워크와 비만 확산 (Christakis NA. & Fowler JH., NEJM 2007)</strong><br>
-        비만·건강 행동 모두 사회 네트워크를 통해 전파. 친구가 건강 행동 실천 시 자신도 실천 확률 57% 증가.<br><br>
-        <strong>② 책임 파트너십 (Prestwich A. et al., BJHP 2012)</strong><br>
-        건강 목표를 타인에게 공유하고 피드백 받을 때 목표 달성률 33% 향상.`,
-      questions:[
-        '주변 사람들과 건강 정보를 나누고 서로 칭찬·격려를 통해 동기부여하는 문화가 나의 일상에 있다',
-        '"함께 건강해지자"는 의식으로 혼자가 아닌 동행(가족·친구·커뮤니티)과 함께 건강 관리를 실천한다',
-        '나 자신이 주변 사람들에게 건강한 생활의 모범이 되려는 의식이 있으며, 실제로 그렇게 행동하려 노력한다'
-      ]
-    }
-  ]
-},
-{
-  id:7, icon:'📚', name:'지(智)', sub:'건강 정보 리터러시',
-  focus:'나는 건강정보(검진결과·기능식품·가이드라인)를 이해하고 선별할 수 있는 기준을 갖고 있는가?',
-  color:'#059669',
-  dims:[
-    {
-      letter:'A', name:'검진 결과 이해 능력',
-      ref:'건강 리터러시와 만성질환 관리',
-      refDetail:`<strong>① 건강 리터러시와 만성질환 (Berkman ND. et al., AHRQ 2011)</strong><br>
-        낮은 건강 리터러시는 입원율 1.7배, 응급실 방문 1.5배, 만성질환 악화율 증가와 직결.<br><br>
-        <strong>② 국가건강검진 결과 해석 (질병관리청, 2023)</strong><br>
-        공복혈당 100~125mg/dL = 당뇨 전단계, 혈압 130/80mmHg 이상 = 고혈압 전단계 기준.`,
-      questions:[
-        '건강검진 결과표(혈당·혈압·콜레스테롤·허리둘레·간수치 등)의 수치 의미를 스스로 해석하고 설명할 수 있다',
-        '"정상"과 "전단계(경계·주의)"를 구분하고, 내 수치가 어느 위험 단계에 해당하는지 안다',
-        '검진 결과에서 이상 소견이 발견되었을 때 방치하지 않고 6개월 이내에 재검사 또는 전문의 상담을 받는다'
-      ]
-    },
-    {
-      letter:'B', name:'건강기능식품·정보 선별',
-      ref:'정보 과부하 시대의 건강 정보 판별',
-      refDetail:`<strong>① FDA·식품의약품안전처 건강기능식품 가이드</strong><br>
-        광고 주장과 달리 건강기능식품은 질병 치료제가 아님. 성분·함량·기능성 인정 여부 확인 필수.<br><br>
-        <strong>② 건강 가짜뉴스 실태 (WHO Infodemic Report, 2022)</strong><br>
-        COVID 및 건강 관련 허위정보가 온라인에서 6배 빠르게 확산. 비판적 정보 판별 능력이 건강 결정의 핵심.`,
-      questions:[
-        '건강기능식품·영양제를 선택할 때 광고·리뷰보다 성분·함량·식약처 기능성 인정 여부·임상 근거를 먼저 확인한다',
-        'SNS·유튜브·블로그의 건강 정보를 접할 때 출처·전문가 검증 여부·이해충돌을 확인하는 습관이 있다',
-        '"자연 치료", "독소 제거", "기적의 식품" 등 과학적 근거가 없는 건강 마케팅 용어에 쉽게 설득되지 않는다'
-      ]
-    },
-    {
-      letter:'C', name:'만성질환 위험 인식',
-      ref:'예방 가능한 만성질환 진단 기준 숙지',
-      refDetail:`<strong>① WHO 만성질환 예방 보고서 (2023)</strong><br>
-        80%의 심혈관질환·당뇨가 예방 가능. 진단 기준 인지와 조기 발견이 핵심 예방 전략.<br><br>
-        <strong>② 가족력과 유전 위험 (Nielsen DE. et al., JAMA Intern Med 2016)</strong><br>
-        가족력을 아는 사람이 예방 행동을 실천할 확률 2배 증가. 모르면 위험도 인식 불가.`,
-      questions:[
-        '당뇨·고혈압·고지혈증·비만의 진단 기준 수치와 내 가족력(부모·형제의 만성질환)을 알고 있다',
-        '나의 현재 식사·운동·수면·흡연·음주 습관이 만성질환 위험 요인과 어떻게 연결되는지 구체적으로 설명할 수 있다',
-        '대사증후군의 5가지 기준(복부비만·혈압·혈당·중성지방·HDL콜레스테롤)을 알고 내 해당 여부를 확인한 적이 있다'
-      ]
-    },
-    {
-      letter:'D', name:'건강 의사결정 능력',
-      ref:'의학적 의사결정과 가이드라인 활용',
-      refDetail:`<strong>① 공동 의사결정(Shared Decision Making) (Légaré F. et al., Cochrane 2014)</strong><br>
-        환자가 의학적 정보를 이해하고 능동적으로 참여할 때 치료 순응도 및 건강 결과 향상.<br><br>
-        <strong>② 질병관리청 국가건강검진 권고 (2023)</strong><br>
-        연령·성별별 검진 주기 및 생활 수칙을 알고 실천하는 것이 만성질환 조기 발견의 핵심.`,
-      questions:[
-        '의사·전문가의 처방·권고(약 복용·생활습관 개선 처방)의 근거를 이해하고, 실천 여부를 스스로 판단하는 기준이 있다',
-        '국가건강검진 권고 주기를 지키고, 검진 후 이상 소견에 대해 적극적으로 추가 검사·상담을 받는다',
-        '처방받은 약을 임의로 중단하거나 용량을 바꾸지 않으며, 복약 전 부작용과 상호작용을 확인하는 습관이 있다'
-      ]
-    }
-  ]
-},
-{
-  id:8, icon:'🎨', name:'락(樂)', sub:'건강 여가',
-  focus:'내가 즐기는 여가가 "소모"가 아니라 지속 가능한 회복·활력·삶의 질로 연결되는가(건강수명 관점)?',
-  color:'#7C3AED',
-  dims:[
-    {
-      letter:'A', name:'여가의 회복력 (충전 vs 소모)',
-      ref:'회복적 경험 이론과 긍정 정서',
-      refDetail:`<strong>① 회복적 경험 이론 (Kaplan S., Psych Rev 1995)</strong><br>
-        여가의 4요소(이탈·연장·매혹·적합성)가 충족될 때만 진정한 정신적 회복 발생.<br><br>
-        <strong>② 긍정 정서와 건강 수명 (Pressman SD. & Cohen S., Psych Bull 2005)</strong><br>
-        긍정 정서를 자주 경험하는 사람의 기대 수명 7~10년 증가. 면역 기능·심혈관 건강 개선.`,
-      questions:[
-        '여가 활동 후 피로가 풀리고 활력·기분이 좋아지는 것을 느낀다 (화면 시청·SNS 후에도 그렇게 느끼는가 재확인)',
-        '과도한 음주·폭식을 동반하거나 다음 날 몸이 더 피곤한 "건강 소모형 여가"를 의식적으로 줄이고 있다',
-        '여가 시간 이후 다음 날 업무나 일상 활동에 에너지가 충전된 느낌이 들며, 생산성이 향상되는 경험을 한다'
-      ]
-    },
-    {
-      letter:'B', name:'신체 활성 여가',
-      ref:'여가 신체활동과 건강수명',
-      refDetail:`<strong>① 여가 신체활동과 사망위험 (Arem H. et al., JAMA Intern Med 2015)</strong><br>
-        여가 시간 신체활동이 전혀 없는 사람에 비해 권장량 충족 시 사망위험 31% 감소.<br><br>
-        <strong>② 디지털 디톡스와 정신건강 (Hunt MG. et al., J Soc Clin Psychol 2018)</strong><br>
-        SNS 사용을 하루 30분으로 제한 시 3주 후 외로움·우울 감소, 삶의 만족도 증가.`,
-      questions:[
-        '산책·등산·댄스·스포츠·자전거 등 신체를 움직이는 여가·취미가 내 일주일 일정에 포함되어 있다',
-        '여가 시간에 스마트폰·유튜브·SNS 없이 나만의 오프라인 활동을 최근 1주일 내 한 적이 있다',
-        '자연(공원·산·바다 등)에서 보내는 시간을 의도적으로 확보하여 심신 회복에 활용한다'
-      ]
-    },
-    {
-      letter:'C', name:'인지·창의 & 사회적 여가',
-      ref:'뇌 건강과 사회적 연결의 장수 효과',
-      refDetail:`<strong>① 인지 활동과 치매 예방 (Stern Y. et al., Neurology 1994, "인지 예비능")</strong><br>
-        독서·퍼즐·악기·창작 등 인지 자극 활동이 치매 발병을 5~7년 지연시키는 효과.<br><br>
-        <strong>② 사회적 여가와 장수 (Steptoe A. et al., PNAS 2016)</strong><br>
-        타인과 함께하는 여가 참여자는 코르티솔이 낮고, 10년 사망 위험이 26% 감소.`,
-      questions:[
-        '독서·글쓰기·악기·퍼즐·공예·요리 등 인지·창의적 활동을 즐기며 두뇌를 자극한다',
-        '취미·여가 활동에서 타인과 함께하는 사회적 연결(모임·클럽·봉사·동호회)이 이루어지고 있다',
-        '새로운 기술이나 지식을 배우는 활동(강좌 수강·새 악기 도전·언어 공부 등)을 여가로 즐기고 있다'
-      ]
-    },
-    {
-      letter:'D', name:'지속 가능한 여가 설계',
-      ref:'건강수명 관점의 여가 습관 형성',
-      refDetail:`<strong>① 건강 수명과 여가 활동 (JAGES 코호트 연구, 일본, 2019)</strong><br>
-        취미·여가 활동이 있는 고령자가 없는 그룹 대비 사망위험 16%, 기능 저하 위험 28% 감소.<br><br>
-        <strong>② 일·여가 균형과 번아웃 예방 (Sonnentag S., J Appl Psychol 2001)</strong><br>
-        여가 시간을 의도적으로 확보하는 사람이 업무 번아웃이 낮고 회복탄력성이 높음.`,
-      questions:[
-        '바쁜 시기에도 최소한의 여가 시간(하루 30분 이상)을 확보하는 것이 나의 우선순위에 있다',
-        '10년·20년 후에도 즐길 수 있는 지속 가능한 여가 습관(걷기·독서·악기·사교모임 등)이 지금부터 만들어지고 있다',
-        '여가의 질을 정기적으로 돌아보며, 충전이 되지 않는 활동은 바꾸고 더 나은 여가를 찾는 노력을 한다'
-      ]
-    }
-  ]
-}
+  {
+    "id": 1,
+    "icon": "🍎",
+    "name": "식(食)",
+    "sub": "만성질환 예방 식사 습관",
+    "focus": "최근 2주 동안의 식사 패턴이 혈당·혈압·체중 위험을 줄이는 방향으로 유지되고 있는가?",
+    "color": "#16A34A",
+    "dims": [
+      {
+        "letter": "A",
+        "name": "혈당을 덜 흔드는 식사",
+        "ref": "채소·통곡물 중심 식사는 혈당 관리와 심혈관 건강에 도움",
+        "refDetail": "<strong>① WHO Healthy Diet</strong><br>채소·과일을 충분히 먹고 정제 탄수화물·자유당을 줄이는 식사가 만성질환 예방의 기본입니다. <a href=\"https://www.who.int/news-room/fact-sheets/detail/healthy-diet\" target=\"_blank\" rel=\"noopener noreferrer\">WHO Healthy Diet</a><br><br><strong>② AHA Life's Essential 8</strong><br>통곡물·채소·과일·콩류 중심의 식사 패턴은 심혈관 건강 점수를 높이는 핵심 요소입니다. <a href=\"https://www.heart.org/en/healthy-living/healthy-lifestyle/lifes-essential-8\" target=\"_blank\" rel=\"noopener noreferrer\">AHA Life's Essential 8</a>",
+        "questions": [
+          "최근 2주 동안 나는 한 끼를 먹을 때 채소 반찬이나 샐러드를 함께 먹었다",
+          "최근 2주 동안 나는 흰빵·과자·달달한 빵보다 현미·잡곡·통곡물·고구마처럼 덜 정제된 탄수화물을 골랐다"
+        ]
+      },
+      {
+        "letter": "B",
+        "name": "나트륨·당 음료 줄이기",
+        "ref": "나트륨과 첨가당을 줄이는 습관은 혈압·체중 관리에 중요",
+        "refDetail": "<strong>① WHO Healthy Diet</strong><br>소금은 하루 5g 미만, 자유당은 총 에너지의 10% 미만으로 줄일 것을 권고합니다. <a href=\"https://www.who.int/news-room/fact-sheets/detail/healthy-diet\" target=\"_blank\" rel=\"noopener noreferrer\">WHO Healthy Diet</a><br><br><strong>② CDC / FDA Nutrition Facts Label</strong><br>영양성분표를 활용해 나트륨·첨가당이 많은 식품을 줄이는 것이 도움이 됩니다. <a href=\"https://www.cdc.gov/healthy-weight-growth/healthy-eating/nutrition-label.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Nutrition Label</a> · <a href=\"https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label\" target=\"_blank\" rel=\"noopener noreferrer\">FDA Nutrition Facts</a>",
+        "questions": [
+          "최근 2주 동안 나는 국물·찌개·라면을 먹을 때 국물을 적게 먹거나 남겼다",
+          "최근 2주 동안 나는 탄산음료·달달한 커피·가당 주스·에너지음료 대신 물이나 무가당 음료를 마셨다"
+        ]
+      },
+      {
+        "letter": "C",
+        "name": "과식·야식 조절",
+        "ref": "규칙적이고 절제된 식사는 체중·복부비만 예방에 도움",
+        "refDetail": "<strong>① CDC Chronic Disease Prevention</strong><br>건강한 식사와 체중 관리는 당뇨병·심장병·비만 예방의 핵심입니다. <a href=\"https://www.cdc.gov/chronic-disease/prevention/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Chronic Disease Prevention</a><br><br><strong>② AHA Life's Essential 8</strong><br>체중 관리는 식습관·활동·수면과 연결되며, 반복적인 과식·야식 습관을 줄이는 생활 조절이 중요합니다. <a href=\"https://www.heart.org/en/healthy-living/healthy-lifestyle/lifes-essential-8\" target=\"_blank\" rel=\"noopener noreferrer\">AHA Life's Essential 8</a>",
+        "questions": [
+          "최근 2주 동안 나는 오후 9시 이후에는 야식이나 불필요한 군것질을 하지 않았다",
+          "최근 2주 동안 나는 배가 많이 부르기 전에 식사를 멈추거나 양을 조절했다"
+        ]
+      },
+      {
+        "letter": "D",
+        "name": "식사의 질 높이기",
+        "ref": "가공식품을 줄이고 단백질·섬유질을 포함한 식사가 권장됨",
+        "refDetail": "<strong>① WHO Healthy Diet</strong><br>콩류·견과류·채소·과일·통곡물을 포함하고 고지방·고당·고염 가공식품을 줄이는 식사를 권고합니다. <a href=\"https://www.who.int/news-room/fact-sheets/detail/healthy-diet\" target=\"_blank\" rel=\"noopener noreferrer\">WHO Healthy Diet</a><br><br><strong>② AHA Life's Essential 8</strong><br>생선·콩·두부·달걀·살코기 등 질 좋은 단백질과 자연식품 중심의 선택이 심혈관 건강에 유리합니다. <a href=\"https://www.heart.org/en/healthy-living/healthy-lifestyle/lifes-essential-8\" target=\"_blank\" rel=\"noopener noreferrer\">AHA Life's Essential 8</a>",
+        "questions": [
+          "최근 2주 동안 나는 패스트푸드·과자·가공육·즉석식품을 먹는 횟수를 줄였다",
+          "최근 2주 동안 나는 식사할 때 달걀·두부·생선·콩·살코기 같은 단백질 식품을 함께 먹었다"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "icon": "🏃",
+    "name": "동(動)",
+    "sub": "신체활동·운동 습관",
+    "focus": "최근 2주 동안의 활동량이 만성질환 예방에 필요한 유산소·근력·일상활동 기준에 가까운가?",
+    "color": "#0EA5E9",
+    "dims": [
+      {
+        "letter": "A",
+        "name": "유산소 활동",
+        "ref": "성인은 주당 150분 이상 중강도 신체활동 권장",
+        "refDetail": "<strong>① WHO Physical Activity</strong><br>성인은 주당 150~300분의 중강도 또는 75~150분의 고강도 활동을 권고합니다. <a href=\"https://www.who.int/news-room/fact-sheets/detail/physical-activity\" target=\"_blank\" rel=\"noopener noreferrer\">WHO Physical Activity</a><br><br><strong>② CDC Benefits of Physical Activity</strong><br>규칙적인 유산소 운동은 심장병·제2형 당뇨·고혈압 위험을 낮춥니다. <a href=\"https://www.cdc.gov/physical-activity-basics/benefits/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Benefits of Physical Activity</a>",
+        "questions": [
+          "최근 2주 동안 나는 숨이 약간 찰 정도의 걷기나 유산소 활동을 30분 안팎 했다",
+          "최근 2주 동안 나는 일주일에 여러 날로 나누어 몸을 움직이는 날을 만들었다"
+        ]
+      },
+      {
+        "letter": "B",
+        "name": "근력과 근육 유지",
+        "ref": "근력운동은 대사 건강과 기능 유지에 필요",
+        "refDetail": "<strong>① WHO Physical Activity</strong><br>성인은 주 2일 이상 주요 근육군을 사용하는 근력 강화 활동을 권고합니다. <a href=\"https://www.who.int/news-room/fact-sheets/detail/physical-activity\" target=\"_blank\" rel=\"noopener noreferrer\">WHO Physical Activity</a><br><br><strong>② AHA Life's Essential 8</strong><br>유산소 활동과 함께 근력 활동을 병행할수록 전반적 심혈관 건강이 좋아집니다. <a href=\"https://www.heart.org/en/healthy-living/healthy-lifestyle/lifes-essential-8\" target=\"_blank\" rel=\"noopener noreferrer\">AHA Life's Essential 8</a>",
+        "questions": [
+          "최근 2주 동안 나는 스쿼트·아령·밴드·플랭크 같은 근력운동을 했다",
+          "최근 2주 동안 나는 엘리베이터 대신 계단을 이용하거나 일부러 더 걸었다"
+        ]
+      },
+      {
+        "letter": "C",
+        "name": "오래 앉아있기 줄이기",
+        "ref": "좌식 시간을 줄이고 자주 움직이는 것이 중요",
+        "refDetail": "<strong>① WHO Physical Activity</strong><br>신체활동을 늘리는 것뿐 아니라 오래 앉아 있는 시간을 줄일 것을 권장합니다. <a href=\"https://www.who.int/news-room/fact-sheets/detail/physical-activity\" target=\"_blank\" rel=\"noopener noreferrer\">WHO Physical Activity</a><br><br><strong>② CDC Benefits of Physical Activity</strong><br>짧게라도 자주 움직이는 습관은 혈당·혈압·기분 관리에 도움이 됩니다. <a href=\"https://www.cdc.gov/physical-activity-basics/benefits/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Benefits of Physical Activity</a>",
+        "questions": [
+          "최근 2주 동안 나는 오래 앉아 있을 때 한 시간 안팎마다 일어나 몸을 움직였다",
+          "최근 2주 동안 나는 식사 후 10분 정도라도 걷거나 가볍게 움직였다"
+        ]
+      },
+      {
+        "letter": "D",
+        "name": "유연성·활동 점검",
+        "ref": "스트레칭과 자기기록은 활동 지속에 도움",
+        "refDetail": "<strong>① CDC Benefits of Physical Activity</strong><br>신체활동은 유연성·균형·근력·기분 개선에 폭넓게 도움이 됩니다. <a href=\"https://www.cdc.gov/physical-activity-basics/benefits/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Benefits of Physical Activity</a><br><br><strong>② AHA Life's Essential 8</strong><br>스스로 활동량을 확인하고 생활 속 움직임을 늘리는 것이 심혈관 건강 관리에 유익합니다. <a href=\"https://www.heart.org/en/healthy-living/healthy-lifestyle/lifes-essential-8\" target=\"_blank\" rel=\"noopener noreferrer\">AHA Life's Essential 8</a>",
+        "questions": [
+          "최근 2주 동안 나는 몸이 굳지 않도록 스트레칭이나 가벼운 관절 풀기를 했다",
+          "최근 2주 동안 나는 걸음 수나 운동 여부를 앱·시계·기록표 등으로 확인했다"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "icon": "😴",
+    "name": "휴(休)",
+    "sub": "수면·회복 습관",
+    "focus": "최근 2주 동안의 수면 습관이 회복과 대사 건강을 돕는 방향으로 유지되고 있는가?",
+    "color": "#6366F1",
+    "dims": [
+      {
+        "letter": "A",
+        "name": "수면 시간과 규칙성",
+        "ref": "성인은 대부분 매일 7시간 이상 수면이 권장됨",
+        "refDetail": "<strong>① CDC Sleep</strong><br>충분한 수면은 당뇨병·심장병·비만·우울 위험을 낮추는 데 중요합니다. <a href=\"https://www.cdc.gov/sleep/about/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Sleep</a><br><br><strong>② AASM Adult Sleep Duration Health Advisory</strong><br>성인은 건강을 위해 정기적으로 7시간 이상 자는 것이 권장됩니다. <a href=\"https://aasm.org/advocacy/position-statements/adult-sleep-duration-health-advisory/\" target=\"_blank\" rel=\"noopener noreferrer\">AASM Advisory</a>",
+        "questions": [
+          "최근 2주 동안 나는 하루 7시간 안팎 잠을 잤다",
+          "최근 2주 동안 나는 평일과 주말의 기상 시간을 크게 들쭉날쭉하지 않게 유지했다"
+        ]
+      },
+      {
+        "letter": "B",
+        "name": "잠들기 전 생활 조절",
+        "ref": "취침 전 화면·카페인·과식을 줄이는 것이 수면 위생에 도움",
+        "refDetail": "<strong>① CDC Sleep</strong><br>규칙적 수면 습관과 취침 전 환경 조절은 수면의 질 향상에 도움이 됩니다. <a href=\"https://www.cdc.gov/sleep/about/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Sleep</a><br><br><strong>② CDC Physical Activity & Sleep</strong><br>수면은 다른 건강 행동과 연결되며, 취침 전 자극을 줄이는 생활습관이 중요합니다. <a href=\"https://www.cdc.gov/physical-activity-education/staying-healthy/sleep.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Sleep & Activity</a>",
+        "questions": [
+          "최근 2주 동안 나는 잠들기 1시간 전 스마트폰·TV·태블릿 화면 사용을 줄이거나 멈췄다",
+          "최근 2주 동안 나는 늦은 저녁이나 밤에는 카페인 음료와 과식을 피했다"
+        ]
+      },
+      {
+        "letter": "C",
+        "name": "수면 환경과 이완",
+        "ref": "어둡고 조용한 환경과 이완 루틴은 회복에 도움",
+        "refDetail": "<strong>① CDC Sleep</strong><br>침실 환경을 어둡고 조용하고 편안하게 유지하는 것이 권장됩니다. <a href=\"https://www.cdc.gov/sleep/about/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Sleep</a><br><br><strong>② CDC Emotional Well-being</strong><br>호흡·이완·마음 돌봄 같은 회복 활동은 스트레스 완화와 수면 준비에 도움이 됩니다. <a href=\"https://www.cdc.gov/emotional-well-being/improve-your-emotional-well-being/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Emotional Well-being</a>",
+        "questions": [
+          "최근 2주 동안 나는 침실을 어둡고 조용하고 편안하게 유지했다",
+          "최근 2주 동안 나는 잠들기 전 호흡·명상·독서·가벼운 스트레칭 같은 이완 루틴을 했다"
+        ]
+      },
+      {
+        "letter": "D",
+        "name": "낮 동안의 회복 리듬",
+        "ref": "낮 활동과 아침빛 노출은 수면 리듬 유지에 도움",
+        "refDetail": "<strong>① CDC Sleep</strong><br>낮 동안의 규칙적인 활동과 수면-각성 리듬 유지가 중요합니다. <a href=\"https://www.cdc.gov/sleep/about/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Sleep</a><br><br><strong>② WHO Physical Activity</strong><br>낮의 신체활동은 건강 증진과 회복 리듬 형성에 유리합니다. <a href=\"https://www.who.int/news-room/fact-sheets/detail/physical-activity\" target=\"_blank\" rel=\"noopener noreferrer\">WHO Physical Activity</a>",
+        "questions": [
+          "최근 2주 동안 나는 아침이나 낮 시간에 바깥에서 햇빛을 쬐었다",
+          "최근 2주 동안 나는 낮잠이나 늦잠 때문에 밤 수면 리듬이 흐트러지지 않게 조절했다"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "icon": "🧠",
+    "name": "심(心)",
+    "sub": "스트레스·마음 건강 습관",
+    "focus": "최근 2주 동안 나는 스트레스에 끌려가기보다 몸과 마음을 보호하는 회복 행동을 실천했는가?",
+    "color": "#F59E0B",
+    "dims": [
+      {
+        "letter": "A",
+        "name": "스트레스 멈춤 습관",
+        "ref": "스트레스 신호를 알아차리고 반응을 늦추는 연습이 도움",
+        "refDetail": "<strong>① CDC Living With Stress</strong><br>스트레스를 인식하고 잠시 멈추고 대처하는 습관은 정서적 건강에 중요합니다. <a href=\"https://www.cdc.gov/mental-health/living-with/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Living With Stress</a><br><br><strong>② NCCIH Stress</strong><br>만성 스트레스는 건강에 악영향을 줄 수 있어 호흡·명상·움직임 등 관리 전략이 권장됩니다. <a href=\"https://www.nccih.nih.gov/health/stress\" target=\"_blank\" rel=\"noopener noreferrer\">NCCIH Stress</a>",
+        "questions": [
+          "최근 2주 동안 나는 하루 중 1~2분이라도 호흡을 가다듬거나 잠깐 멈추는 시간을 가졌다",
+          "최근 2주 동안 나는 감정이 흔들릴 때 바로 먹거나 마시기보다 잠시 멈추고 다른 행동을 했다"
+        ]
+      },
+      {
+        "letter": "B",
+        "name": "회복 행동 실천",
+        "ref": "짧은 회복 행동도 마음 건강에 도움",
+        "refDetail": "<strong>① CDC Emotional Well-being</strong><br>짧은 산책, 호흡, 감사, 휴식 같은 실천은 감정 조절과 회복감 향상에 도움을 줍니다. <a href=\"https://www.cdc.gov/emotional-well-being/improve-your-emotional-well-being/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Emotional Well-being</a><br><br><strong>② CDC Living With Stress</strong><br>규칙적인 휴식과 자기돌봄은 스트레스 관리 전략으로 권장됩니다. <a href=\"https://www.cdc.gov/mental-health/living-with/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Living With Stress</a>",
+        "questions": [
+          "최근 2주 동안 나는 짧게라도 산책·스트레칭·명상 같은 회복 행동을 했다",
+          "최근 2주 동안 나는 바쁜 날에도 잠깐 멈춰 쉬는 시간을 만들었다"
+        ]
+      },
+      {
+        "letter": "C",
+        "name": "도움 요청과 감정 나누기",
+        "ref": "정서적 지지는 스트레스 완충에 도움",
+        "refDetail": "<strong>① CDC Social Connectedness</strong><br>주변과의 연결은 스트레스, 수면, 전반적 건강에 긍정적 영향을 줍니다. <a href=\"https://www.cdc.gov/social-connectedness/improving/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Social Connectedness</a><br><br><strong>② CDC Emotional Well-being</strong><br>혼자 버티기보다 믿을 수 있는 사람과 감정을 나누는 것이 권장됩니다. <a href=\"https://www.cdc.gov/emotional-well-being/improve-your-emotional-well-being/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Emotional Well-being</a>",
+        "questions": [
+          "최근 2주 동안 나는 가족·친구·전문가와 안부를 나누거나 연락했다",
+          "최근 2주 동안 나는 내 상태나 감정을 솔직하게 나누는 대화를 했다"
+        ]
+      },
+      {
+        "letter": "D",
+        "name": "스트레스 속 건강루틴 지키기",
+        "ref": "스트레스 상황에서도 기본 건강루틴 유지가 중요",
+        "refDetail": "<strong>① CDC Living With Stress</strong><br>수면·식사·운동을 무너뜨리지 않는 기본 루틴 유지가 스트레스 관리의 핵심입니다. <a href=\"https://www.cdc.gov/mental-health/living-with/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Living With Stress</a><br><br><strong>② NCCIH Stress</strong><br>스트레스 관리는 마음뿐 아니라 몸의 건강행동과 함께 다뤄야 효과적입니다. <a href=\"https://www.nccih.nih.gov/health/stress\" target=\"_blank\" rel=\"noopener noreferrer\">NCCIH Stress</a>",
+        "questions": [
+          "최근 2주 동안 나는 바쁘거나 컨디션이 좋지 않아도 식사·수면·운동 루틴을 크게 무너뜨리지 않았다",
+          "최근 2주 동안 나는 감사하기·기록하기·생각 정리 같은 방식으로 마음을 정돈했다"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "icon": "🌿",
+    "name": "환(環)",
+    "sub": "건강을 돕는 생활환경",
+    "focus": "최근 2주 동안 내 주변 환경은 건강한 선택을 더 쉽게 만들고, 해로운 선택은 줄이도록 돕고 있는가?",
+    "color": "#10B981",
+    "dims": [
+      {
+        "letter": "A",
+        "name": "무연·절주 환경",
+        "ref": "흡연 회피와 절주는 만성질환 예방의 핵심",
+        "refDetail": "<strong>① WHO Tobacco</strong><br>담배와 간접흡연 노출을 줄이는 것은 심혈관질환·암·호흡기질환 예방의 핵심입니다. <a href=\"https://www.who.int/news-room/fact-sheets/detail/tobacco\" target=\"_blank\" rel=\"noopener noreferrer\">WHO Tobacco</a><br><br><strong>② WHO Alcohol / CDC Moderate Drinking</strong><br>알코올은 건강위험과 관련되며, 줄일수록 더 안전합니다. <a href=\"https://www.who.int/news-room/fact-sheets/detail/alcohol\" target=\"_blank\" rel=\"noopener noreferrer\">WHO Alcohol</a> · <a href=\"https://www.cdc.gov/alcohol/about-alcohol-use/moderate-alcohol-use.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Moderate Drinking</a>",
+        "questions": [
+          "최근 2주 동안 나는 담배 연기나 전자담배 연기가 있는 환경을 피했다",
+          "최근 2주 동안 나는 술을 마시지 않았거나, 마셨더라도 양을 정해두고 넘기지 않았다"
+        ]
+      },
+      {
+        "letter": "B",
+        "name": "건강한 먹거리 배치",
+        "ref": "보이는 환경이 실제 선택을 바꿈",
+        "refDetail": "<strong>① CDC Chronic Disease Prevention</strong><br>건강한 식생활 환경을 만들면 좋은 선택을 더 쉽게 지속할 수 있습니다. <a href=\"https://www.cdc.gov/chronic-disease/prevention/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Chronic Disease Prevention</a><br><br><strong>② WHO Healthy Diet</strong><br>과일·채소·덜 가공된 식품 중심 환경이 만성질환 예방에 유리합니다. <a href=\"https://www.who.int/news-room/fact-sheets/detail/healthy-diet\" target=\"_blank\" rel=\"noopener noreferrer\">WHO Healthy Diet</a>",
+        "questions": [
+          "최근 2주 동안 나는 과일·견과류·물 같은 건강한 선택을 집이나 직장에서 눈에 잘 띄게 두었다",
+          "최근 2주 동안 나는 과자·달달한 음료·야식거리를 눈에 덜 띄는 곳에 두거나 쉽게 사지 않도록 했다"
+        ]
+      },
+      {
+        "letter": "C",
+        "name": "움직이기 쉬운 환경",
+        "ref": "생활환경을 바꾸면 활동량을 늘리기 쉬워짐",
+        "refDetail": "<strong>① WHO Physical Activity</strong><br>활동 친화적인 환경은 신체활동 증가에 도움이 됩니다. <a href=\"https://www.who.int/news-room/fact-sheets/detail/physical-activity\" target=\"_blank\" rel=\"noopener noreferrer\">WHO Physical Activity</a><br><br><strong>② CDC Benefits of Physical Activity</strong><br>작은 환경 조정도 규칙적인 움직임을 촉진합니다. <a href=\"https://www.cdc.gov/physical-activity-basics/benefits/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Benefits of Physical Activity</a>",
+        "questions": [
+          "최근 2주 동안 나는 운동화·운동복·매트 같은 도구를 바로 쓸 수 있게 두었다",
+          "최근 2주 동안 나는 계단 이용·걷기 좋은 동선 만들기 등 몸을 더 쓰게 하는 환경을 골랐다"
+        ]
+      },
+      {
+        "letter": "D",
+        "name": "공기·자세·작업 환경",
+        "ref": "쾌적한 작업·생활 환경은 건강행동 유지에 도움",
+        "refDetail": "<strong>① CDC Chronic Disease Prevention</strong><br>생활환경과 일상 습관은 만성질환 위험요인과 연결됩니다. <a href=\"https://www.cdc.gov/chronic-disease/prevention/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Chronic Disease Prevention</a><br><br><strong>② CDC Sleep / Well-being</strong><br>환기, 빛, 자세, 화면 노출 같은 환경 관리도 건강 루틴 유지에 영향을 줍니다. <a href=\"https://www.cdc.gov/sleep/about/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Sleep</a> · <a href=\"https://www.cdc.gov/emotional-well-being/improve-your-emotional-well-being/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Emotional Well-being</a>",
+        "questions": [
+          "최근 2주 동안 나는 하루 한 번 이상 환기하거나 실내 공기질을 관리했다",
+          "최근 2주 동안 나는 컴퓨터·스마트폰 사용 중 자세를 바로잡거나 중간에 자세를 풀었다"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "icon": "🤝",
+    "name": "연(連)",
+    "sub": "사회적 연결·예방적 도움받기",
+    "focus": "최근 2주 동안 나는 혼자 버티기보다 사람·전문가·공적 자원을 연결해 건강을 지키고 있는가?",
+    "color": "#EF4444",
+    "dims": [
+      {
+        "letter": "A",
+        "name": "가족·친구 지지",
+        "ref": "사회적 연결은 건강행동 지속과 만성질환 위험 감소에 도움",
+        "refDetail": "<strong>① CDC Social Connectedness</strong><br>작은 연결 행동도 스트레스·수면·건강행동 유지에 긍정적 영향을 줍니다. <a href=\"https://www.cdc.gov/social-connectedness/improving/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Social Connectedness</a><br><br><strong>② CDC Social Connectedness Risk Factors</strong><br>고립과 외로움은 심장병·뇌졸중·제2형 당뇨 위험과 관련됩니다. <a href=\"https://www.cdc.gov/social-connectedness/risk-factors/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Social Connectedness Risk Factors</a>",
+        "questions": [
+          "최근 2주 동안 나는 가족이나 친구에게 내 건강 목표를 알리고 응원이나 협조를 부탁했다",
+          "최근 2주 동안 나는 누군가와 함께 걷기·운동·건강한 식사 같은 건강 행동을 했다"
+        ]
+      },
+      {
+        "letter": "B",
+        "name": "예방적 검진·상담 연결",
+        "ref": "정기 검진과 이상 소견 후속조치는 예방의 핵심",
+        "refDetail": "<strong>① CDC Preventive Care</strong><br>정기 검진, 예방접종, 치과 검진, 이상 결과 확인은 만성질환 예방과 조기 발견에 중요합니다. <a href=\"https://www.cdc.gov/chronic-disease/prevention/preventive-care.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Preventive Care</a><br><br><strong>② CDC Chronic Disease Prevention</strong><br>예방적 의료 이용은 위험요인 관리에 직접 연결됩니다. <a href=\"https://www.cdc.gov/chronic-disease/prevention/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Chronic Disease Prevention</a>",
+        "questions": [
+          "최근 2주 동안 나는 필요한 건강검진·치과검진·예방접종 일정이 있는지 확인했다",
+          "최근 2주 동안 나는 검진 결과나 몸의 이상 신호를 확인하고 필요하면 상담·진료·추가 확인을 했다"
+        ]
+      },
+      {
+        "letter": "C",
+        "name": "건강 자원 활용",
+        "ref": "건강 교육·지역 자원 활용은 실천 유지에 도움",
+        "refDetail": "<strong>① CDC Social Connectedness</strong><br>지역사회 모임과 연결은 건강과 웰빙 증진에 도움이 됩니다. <a href=\"https://www.cdc.gov/social-connectedness/improving/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Social Connectedness</a><br><br><strong>② CDC Preventive Care</strong><br>신뢰할 수 있는 건강 자원과 서비스를 적극적으로 활용하는 것이 권장됩니다. <a href=\"https://www.cdc.gov/chronic-disease/prevention/preventive-care.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Preventive Care</a>",
+        "questions": [
+          "최근 2주 동안 나는 건강 강좌·교육 자료·지역 프로그램·온라인 건강 자원을 찾아보거나 활용했다",
+          "최근 2주 동안 나는 내 건강문제와 관련된 전문가·기관·프로그램 정보를 찾고 실제로 연결을 시도했다"
+        ]
+      },
+      {
+        "letter": "D",
+        "name": "함께 지속하기",
+        "ref": "함께 확인하고 격려받는 구조가 행동 지속에 도움",
+        "refDetail": "<strong>① CDC Social Connectedness</strong><br>서로 확인하고 돕는 관계는 건강 행동의 지속 가능성을 높입니다. <a href=\"https://www.cdc.gov/social-connectedness/improving/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Social Connectedness</a><br><br><strong>② CDC Emotional Well-being</strong><br>지지 관계는 감정적 회복과 행동 실천 모두에 긍정적입니다. <a href=\"https://www.cdc.gov/emotional-well-being/improve-your-emotional-well-being/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Emotional Well-being</a>",
+        "questions": [
+          "최근 2주 동안 나는 누군가와 건강 실천 결과를 서로 확인하거나 인증했다",
+          "최근 2주 동안 나는 건강을 해치는 모임·권유·습관 대신 더 건강한 선택으로 바꾸었다"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "icon": "📚",
+    "name": "지(智)",
+    "sub": "건강정보 활용·자기관리",
+    "focus": "최근 2주 동안 나는 건강정보를 제대로 읽고, 내 수치를 확인하며, 실제 행동계획으로 연결했는가?",
+    "color": "#059669",
+    "dims": [
+      {
+        "letter": "A",
+        "name": "영양표시 읽기",
+        "ref": "영양성분표 확인은 나트륨·당·포화지방 관리에 도움",
+        "refDetail": "<strong>① CDC Nutrition Facts Label</strong><br>영양성분표를 보면 나트륨·첨가당·지방을 비교해 더 건강한 선택을 할 수 있습니다. <a href=\"https://www.cdc.gov/healthy-weight-growth/healthy-eating/nutrition-label.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Nutrition Label</a><br><br><strong>② FDA Nutrition Facts</strong><br>%영양성분기준치와 1회 제공량을 함께 보는 습관이 중요합니다. <a href=\"https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label\" target=\"_blank\" rel=\"noopener noreferrer\">FDA Nutrition Facts</a>",
+        "questions": [
+          "최근 2주 동안 나는 식품을 고를 때 영양성분표에서 당·나트륨·포화지방을 확인했다",
+          "최근 2주 동안 나는 같은 식품을 비교할 때 1회 제공량과 전체 양을 함께 살펴보았다"
+        ]
+      },
+      {
+        "letter": "B",
+        "name": "정보 출처 확인",
+        "ref": "건강정보는 출처와 근거 확인이 필요",
+        "refDetail": "<strong>① CDC Food Literacy Research Summary</strong><br>건강한 선택에는 정보를 이해하고 적용하는 능력이 필요합니다. <a href=\"https://www.cdc.gov/health-literacy/php/research-summaries/food-literacy.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Food Literacy</a><br><br><strong>② FDA / CDC 건강정보 자료</strong><br>광고·후기보다 공식기관, 전문가, 근거자료를 우선 확인하는 습관이 중요합니다. <a href=\"https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label\" target=\"_blank\" rel=\"noopener noreferrer\">FDA Nutrition Facts</a> · <a href=\"https://www.cdc.gov/healthy-weight-growth/healthy-eating/nutrition-label.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Nutrition Label</a>",
+        "questions": [
+          "최근 2주 동안 나는 건강정보를 볼 때 누가 만든 정보인지와 출처를 먼저 확인했다",
+          "최근 2주 동안 나는 건강기능식품·건강법을 선택할 때 광고나 후기보다 공신력 있는 자료나 전문가 의견을 먼저 찾아보았다"
+        ]
+      },
+      {
+        "letter": "C",
+        "name": "내 수치 확인과 기록",
+        "ref": "혈압·혈당·체중 같은 지표를 확인하는 습관이 자기관리에 도움",
+        "refDetail": "<strong>① AHA Home Blood Pressure Monitoring</strong><br>가정혈압 측정과 기록은 혈압 관리에 도움이 됩니다. <a href=\"https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home\" target=\"_blank\" rel=\"noopener noreferrer\">AHA Home BP Monitoring</a><br><br><strong>② CDC Preventive Care</strong><br>검진 결과를 확인하고 필요한 후속조치를 하는 것이 중요합니다. <a href=\"https://www.cdc.gov/chronic-disease/prevention/preventive-care.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Preventive Care</a>",
+        "questions": [
+          "최근 2주 동안 나는 혈압·혈당·체중·허리둘레 같은 건강 수치를 확인했거나 최근 결과를 다시 살펴보았다",
+          "최근 2주 동안 나는 확인한 건강 수치를 앱·메모·수첩 등에 기록했다"
+        ]
+      },
+      {
+        "letter": "D",
+        "name": "실천 계획 세우기",
+        "ref": "구체적인 목표와 점검이 행동변화에 유리",
+        "refDetail": "<strong>① CDC Chronic Disease Prevention</strong><br>만성질환 예방은 정보를 아는 것에서 끝나지 않고 식사·활동·검진 실천으로 연결되어야 합니다. <a href=\"https://www.cdc.gov/chronic-disease/prevention/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Chronic Disease Prevention</a><br><br><strong>② AHA Life's Essential 8</strong><br>자신의 건강지표를 알고 생활습관 목표를 정해 관리하는 것이 권장됩니다. <a href=\"https://www.heart.org/en/healthy-living/healthy-lifestyle/lifes-essential-8\" target=\"_blank\" rel=\"noopener noreferrer\">AHA Life's Essential 8</a>",
+        "questions": [
+          "최근 2주 동안 나는 나에게 필요한 건강 목표를 하나 이상 구체적으로 정했다",
+          "최근 2주 동안 나는 건강 실천을 방해할 상황을 예상하고 미리 대처 계획을 세웠다"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "icon": "🎨",
+    "name": "락(樂)",
+    "sub": "회복형 여가·삶의 활력",
+    "focus": "최근 2주 동안의 여가가 몸을 더 소모시키기보다 회복·활력·삶의 질을 높이는 방향이었는가?",
+    "color": "#7C3AED",
+    "dims": [
+      {
+        "letter": "A",
+        "name": "움직이는 여가",
+        "ref": "활동적인 여가는 신체·정신 건강에 도움",
+        "refDetail": "<strong>① CDC Benefits of Physical Activity</strong><br>걷기·자전거·댄스 같은 활동은 몸뿐 아니라 기분과 수면에도 도움이 됩니다. <a href=\"https://www.cdc.gov/physical-activity-basics/benefits/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Benefits of Physical Activity</a><br><br><strong>② CDC Boost Brain Health</strong><br>신체활동은 뇌 건강과 스트레스 완화에도 이점이 있습니다. <a href=\"https://www.cdc.gov/physical-activity/features/boost-brain-health.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Brain Health</a>",
+        "questions": [
+          "최근 2주 동안 나는 산책·등산·자전거·댄스처럼 몸을 움직이는 여가를 했다",
+          "최근 2주 동안 나는 실내에만 있기보다 바깥에서 걷거나 햇빛을 쬐는 시간을 가졌다"
+        ]
+      },
+      {
+        "letter": "B",
+        "name": "화면 밖 회복 여가",
+        "ref": "스크린 중심 여가만이 아니라 회복형 활동이 필요",
+        "refDetail": "<strong>① CDC Emotional Well-being</strong><br>회복을 돕는 여가와 휴식은 정서적 웰빙 향상에 도움이 됩니다. <a href=\"https://www.cdc.gov/emotional-well-being/improve-your-emotional-well-being/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Emotional Well-being</a><br><br><strong>② CDC Living With Stress</strong><br>스크린 외의 휴식, 이완, 취미 활동은 스트레스 관리 전략으로 권장됩니다. <a href=\"https://www.cdc.gov/mental-health/living-with/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Living With Stress</a>",
+        "questions": [
+          "최근 2주 동안 나는 스마트폰·유튜브·SNS만이 아닌 독서·음악·글쓰기·공예 같은 오프라인 취미를 했다",
+          "최근 2주 동안 나는 목욕·호흡·명상·차분한 음악 듣기처럼 몸과 마음을 풀어주는 여가를 가졌다"
+        ]
+      },
+      {
+        "letter": "C",
+        "name": "사람과 함께하는 건강한 여가",
+        "ref": "함께하는 여가는 연결감과 회복감에 도움",
+        "refDetail": "<strong>① CDC Social Connectedness</strong><br>사람과의 연결은 외로움 감소와 건강 증진에 도움이 됩니다. <a href=\"https://www.cdc.gov/social-connectedness/improving/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Social Connectedness</a><br><br><strong>② CDC Emotional Well-being</strong><br>즐겁고 의미 있는 관계 활동은 웰빙을 높입니다. <a href=\"https://www.cdc.gov/emotional-well-being/improve-your-emotional-well-being/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Emotional Well-being</a>",
+        "questions": [
+          "최근 2주 동안 나는 과음 중심이 아닌 건강한 방식으로 가족·친구와 여가 시간을 보냈다",
+          "최근 2주 동안 나는 나를 즐겁게 하거나 의미 있게 만드는 사람들과의 활동 시간을 만들었다"
+        ]
+      },
+      {
+        "letter": "D",
+        "name": "지속 가능한 여가 설계",
+        "ref": "의도적으로 여가를 확보할수록 회복과 균형 유지에 도움",
+        "refDetail": "<strong>① CDC Emotional Well-being</strong><br>의도적으로 쉬는 시간과 즐거운 활동을 확보하는 것이 정서적 건강에 도움이 됩니다. <a href=\"https://www.cdc.gov/emotional-well-being/improve-your-emotional-well-being/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Emotional Well-being</a><br><br><strong>② CDC Living With Stress</strong><br>바쁠수록 회복 시간을 일정에 넣는 습관이 중요합니다. <a href=\"https://www.cdc.gov/mental-health/living-with/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">CDC Living With Stress</a>",
+        "questions": [
+          "최근 2주 동안 나는 바쁜 날에도 나를 회복시키는 여가 시간을 일부러 확보했다",
+          "최근 2주 동안 나는 다음 주에도 이어갈 수 있는 건강한 취미나 여가 계획을 세웠다"
+        ]
+      }
+    ]
+  }
 ];
 
 // ════════════════════════════════════════
@@ -1115,7 +1064,7 @@ function renderQuiz(){
 
       const labels=['거의<br>안 함','가끔<br>함','자주<br>함','항상<br>함'];
       card.innerHTML=`
-        <div class="q-text"><span class="q-num">Q${di*3+qi+1}.</span>${q}</div>
+        <div class="q-text"><span class="q-num">Q${di*2+qi+1}.</span>${q}</div>
         <div class="radio-group">
           ${[1,2,3,4].map(v=>`
             <label>
@@ -1153,7 +1102,7 @@ function updateAnsweredCount(){
       if(answers[`${area.id}-${di}-${qi}`]!==undefined) count++;
     });
   });
-  document.getElementById('quiz-answered-count').textContent=`${count}/12 답변 완료`;
+  document.getElementById('quiz-answered-count').textContent=`${count}/8 답변 완료`;
 }
 
 function prevArea(){
@@ -1215,7 +1164,7 @@ function getAreaScore(areaId){
       total+=(answers[`${areaId}-${di}-${qi}`]||1);
     });
   });
-  return total; // max 48
+  return total; // max 32
 }
 
 function getDimScore(areaId,dimIdx){
@@ -1224,7 +1173,7 @@ function getDimScore(areaId,dimIdx){
   area.dims[dimIdx].questions.forEach((_,qi)=>{
     s+=(answers[`${areaId}-${dimIdx}-${qi}`]||1);
   });
-  return s; // max 12
+  return s; // max 8
 }
 
 function pct(score,max){return Math.round((score/max)*100);}
@@ -1236,14 +1185,107 @@ function getRiskLevel(p){
   return {label:'우수',cls:'risk-best',color:'#3B82F6'};
 }
 
+const AREA_INTERPRETATIONS={
+  1:{
+    strength:'혈당을 덜 흔드는 식사 리듬이 비교적 잘 잡혀 있습니다. 채소·통곡물·절제된 식사 선택이 안정적으로 이어지는 편입니다.',
+    caution:'기본은 갖추고 있지만 외식, 국물, 단 음료, 야식 같은 상황에서 흔들릴 여지가 보입니다. 작은 흔들림이 누적되기 쉬운 영역입니다.',
+    weak:'정제 탄수화물, 단 음료, 과식·야식 패턴이 아직 남아 있을 가능성이 큽니다. 만성질환 예방에서 가장 먼저 손대면 체감이 큰 영역입니다.',
+    suggestion:{strength:'지금의 식사 패턴을 유지하되, 바쁜 날에도 “채소 먼저 → 단백질 → 탄수화물” 순서를 지키는 기본 루틴을 고정해보세요.',caution:'하루 1끼만이라도 “채소 먼저 → 단백질 → 탄수화물” 순서를 고정하고, 단 음료는 물·무가당 음료로 바꿔보세요.',weak:'이번 주는 야식 중단, 단 음료 끊기, 채소 먼저 먹기 3가지 중 딱 1가지만 정해서 매일 실천해보세요.'}
+  },
+  2:{
+    strength:'걷기, 근력, 유연성, 앉아있는 시간 관리가 비교적 균형 있게 유지되고 있습니다. 움직임이 생활 속에 스며든 상태입니다.',
+    caution:'운동은 하고 있지만 오래 앉아있는 시간, 근력운동, 스트레칭 중 일부가 비어 있을 수 있습니다. 활동의 질을 조금 더 채우면 좋습니다.',
+    weak:'전체 활동량 부족과 오래 앉아있는 습관이 함께 나타날 가능성이 큽니다. 대사 건강과 체력 저하를 막기 위해 우선 개입이 필요한 영역입니다.',
+    suggestion:{strength:'현재 리듬을 유지하면서 주 2회 근력운동과 30분마다 일어나기 습관을 함께 유지해보세요.',caution:'하루 7,000보 목표와 30분마다 1~2분 일어서기 알람을 동시에 적용해보세요.',weak:'운동 계획보다 먼저 “하루 총 걸음수 늘리기 + 오래 앉아있지 않기”부터 시작하세요. 오늘 바로 한 정거장 먼저 내려 걷는 방식이 좋습니다.'}
+  },
+  3:{
+    strength:'수면 시간과 회복 루틴이 비교적 안정적입니다. 몸이 회복할 시간을 꾸준히 확보하고 있는 편입니다.',
+    caution:'수면 시간은 어느 정도 확보되어도 취침 시각, 화면 노출, 카페인, 낮 회복 습관이 수면의 질을 떨어뜨릴 수 있습니다.',
+    weak:'수면 부족 또는 불규칙한 수면이 대사 건강과 회복을 방해하고 있을 가능성이 큽니다. 다른 영역 실천도 함께 흔들릴 수 있습니다.',
+    suggestion:{strength:'현재 수면 리듬을 유지하면서 취침 1시간 전 화면 끄기와 일정한 기상 시각을 계속 지켜보세요.',caution:'취침 1시간 전 스마트폰 끄기, 오후 2시 이후 카페인 줄이기, 취침·기상 시각 고정을 1주일만 실험해보세요.',weak:'오늘 밤부터 침실에서 스마트폰을 멀리 두고, 수면 시간을 먼저 확보하세요. 수면이 회복되면 식사·운동 실천도 훨씬 쉬워집니다.'}
+  },
+  4:{
+    strength:'스트레스를 알아차리고 회복 행동으로 전환하는 힘이 비교적 잘 작동하고 있습니다. 감정이 생활습관을 크게 흔들지 않는 상태입니다.',
+    caution:'스트레스를 느끼는 순간은 인식하지만 회복 행동으로 바로 이어지지 않는 구간이 보입니다. 긴장 해소 방식의 정교화가 필요합니다.',
+    weak:'감정과 스트레스가 식사, 수면, 실천 유지력을 흔들고 있을 수 있습니다. 의지 문제라기보다 회복 전략이 부족한 상태에 가깝습니다.',
+    suggestion:{strength:'지금의 회복 루틴을 유지하되, 스트레스 신호가 왔을 때 바로 쓰는 1분 호흡·5분 걷기 같은 응급 루틴을 고정해두세요.',caution:'스트레스가 올라올 때 사용할 행동 1가지를 미리 정해두세요. 예: 5분 걷기, 심호흡 10회, 감정 메모.',weak:'폭식·야식·멍하니 스크롤 대신 사용할 대체 행동 1가지를 정하고, “스트레스가 오면 바로 이것”이라는 규칙을 만들어보세요.'}
+  },
+  5:{
+    strength:'건강한 선택을 돕는 생활 환경이 비교적 잘 만들어져 있습니다. 습관을 끌어주는 배치와 분위기가 형성된 편입니다.',
+    caution:'환경 설계가 부분적으로는 되어 있어도 여전히 유혹 노출이나 좌식 환경이 남아 있을 수 있습니다. 행동을 쉽게 만드는 세팅이 더 필요합니다.',
+    weak:'주변 환경이 건강한 선택보다 편한 선택을 밀어주는 상태일 가능성이 큽니다. 의지보다 환경을 바꾸는 것이 먼저입니다.',
+    suggestion:{strength:'지금의 환경 세팅을 유지하면서 물, 과일, 운동화처럼 좋은 선택의 단서를 계속 눈에 보이게 두세요.',caution:'집·책상·차 안에서 자주 보이는 간식과 음료를 한 번만 재배치해도 행동이 달라집니다. 건강한 선택이 더 쉽게 보이게 바꿔보세요.',weak:'오늘 바로 군것질·술·가당음료 노출을 줄이고, 물병·과일·운동화를 눈에 띄는 위치에 두세요. 환경이 바뀌면 실천이 훨씬 쉬워집니다.'}
+  },
+  6:{
+    strength:'건강 행동을 지지해 주는 사람과 연결망이 있습니다. 혼자 버티기보다 함께 유지하는 기반이 비교적 잘 마련되어 있습니다.',
+    caution:'도움을 받을 수는 있지만 실제로 요청하거나 예방 관리를 이어가는 힘은 다소 약할 수 있습니다. 연결을 실행으로 바꾸는 단계가 필요합니다.',
+    weak:'혼자 버티는 방식이 반복되어 실천 지속과 예방 관리가 끊기기 쉬운 상태입니다. 연결과 지원 체계를 만드는 것이 중요합니다.',
+    suggestion:{strength:'지금의 지지 관계를 유지하면서 건강 목표를 함께 확인할 사람 1명을 계속 남겨두세요.',caution:'가족이나 친구 1명에게 현재 건강 목표를 공유하고, 검진·상담·실천 체크를 함께 해달라고 부탁해보세요.',weak:'오늘 안에 응원과 점검을 부탁할 사람 1명에게 메시지를 보내고, 필요한 예방검진 일정도 함께 잡아보세요.'}
+  },
+  7:{
+    strength:'건강 정보를 실제 행동으로 옮기는 자기관리 역량이 좋습니다. 알고 끝나는 것이 아니라 확인하고 조정하는 힘이 있습니다.',
+    caution:'정보는 접하지만 라벨 읽기, 수치 확인, 구체적 행동 계획으로 이어지는 비율이 낮을 수 있습니다. 아는 것과 하는 것 사이 연결이 필요합니다.',
+    weak:'좋은 정보를 알아도 실제 선택과 기록으로 연결되지 않는 구간이 큽니다. 자기 점검 시스템을 먼저 만드는 것이 중요합니다.',
+    suggestion:{strength:'현재처럼 라벨 읽기와 수치 확인을 이어가되, 한 달에 한 번은 혈압·혈당·허리둘레 같은 지표를 정리해보세요.',caution:'이번 주 한 번은 영양성분표 또는 건강검진 수치를 직접 보고, 다음 행동 1가지를 메모해보세요.',weak:'지식은 충분해도 실행 연결이 약할 수 있습니다. 오늘 당장 최근 검진 결과나 혈압·허리둘레 중 하나를 확인하고 기록부터 시작하세요.'}
+  },
+  8:{
+    strength:'회복되는 여가를 스스로 설계할 수 있습니다. 쉬는 시간이 단순 소모가 아니라 재충전으로 연결되는 편입니다.',
+    caution:'쉬는 시간은 있지만 화면 의존 여가가 많아 회복감이 낮을 수 있습니다. 여가의 질을 조정하면 전체 실천력이 좋아집니다.',
+    weak:'여가가 회복보다 소모로 작동해 스트레스와 좌식 시간이 누적될 수 있습니다. 즐거움과 회복을 동시에 주는 활동이 필요합니다.',
+    suggestion:{strength:'현재의 회복 여가를 계속 유지하면서, 화면 없는 활동 비중을 조금 더 늘려보세요.',caution:'주 2회 30분 이상은 산책·독서·요리·정리 같은 화면 없는 여가를 일정표에 먼저 넣어보세요.',weak:'이번 주말 일정에 “스마트폰 없이 30분” 한 칸을 먼저 예약하세요. 짧아도 반복되면 회복 체감이 크게 달라집니다.'}
+  }
+};
+
+function getAreaStatus(p){
+  if(p>=80) return {key:'strength',label:'강점'};
+  if(p>=60) return {key:'caution',label:'주의'};
+  return {key:'weak',label:'취약'};
+}
+
+function getLowestDimension(area){
+  const dimScores=area.dims.map((d,di)=>({
+    ...d,
+    score:getDimScore(area.id,di),
+    pctVal:pct(getDimScore(area.id,di),8)
+  }));
+  return dimScores.sort((a,b)=>a.pctVal-b.pctVal)[0];
+}
+
+function renderAreaInsights(areaScores){
+  const el=document.getElementById('area-insight-grid');
+  if(!el) return;
+  el.innerHTML='';
+
+  const sorted=[...areaScores].sort((a,b)=>a.pctVal-b.pctVal);
+  sorted.forEach(a=>{
+    const status=getAreaStatus(a.pctVal);
+    const lowest=getLowestDimension(a);
+    const copy=AREA_INTERPRETATIONS[a.id]||{};
+    const summary=copy[status.key]||'해당 영역 점수를 기준으로 생활습관을 점검해보세요.';
+    const suggestion=(copy.suggestion&&copy.suggestion[status.key])||'가장 낮은 세부차원부터 하나씩 개선해보세요.';
+    const card=document.createElement('div');
+    card.className=`area-insight-card ${status.key}`;
+    card.innerHTML=`
+      <div class="area-insight-top">
+        <div class="area-insight-title">${a.icon} ${a.name} — ${a.sub}</div>
+        <span class="status-chip ${status.key}">${status.label}</span>
+      </div>
+      <div class="area-insight-score">${a.score}/32점 · ${a.pctVal}%</div>
+      <p class="area-insight-summary">${summary}</p>
+      <div class="area-insight-focus"><strong>가장 낮은 세부차원</strong> · ${lowest.letter}. ${lowest.name} (${lowest.score}/8점)</div>
+      <div class="area-insight-suggestion"><strong>행동 제안</strong><span>${suggestion}</span></div>`;
+    el.appendChild(card);
+  });
+}
+
 function buildResults(){
   // Scores
-  const areaScores=AREAS.map(a=>({...a,score:getAreaScore(a.id),pctVal:pct(getAreaScore(a.id),48)}));
+  const areaScores=AREAS.map(a=>({...a,score:getAreaScore(a.id),pctVal:pct(getAreaScore(a.id),32)}));
   const totalScore=areaScores.reduce((s,a)=>s+a.score,0);
 
   // Total display
   document.getElementById('result-total').textContent=totalScore;
-  const totalPct=pct(totalScore,384);
+  const totalPct=pct(totalScore,256);
   let grade,msg;
   if(totalPct>=80){grade='🏆 우수';msg='건강 관리가 전반적으로 잘 되고 있습니다! 최약점을 보완하면 더 완벽해집니다.';}
   else if(totalPct>=65){grade='✅ 양호';msg='대부분 영역이 양호합니다. 아래 취약 영역에 집중 투자해보세요.';}
@@ -1267,7 +1309,7 @@ function buildResults(){
       <div class="rank-badge">${i+1}</div>
       <div class="rank-content" style="flex:1">
         <h4>${a.icon} ${a.name} — ${a.sub} <span class="risk-badge ${risk.cls}">${risk.label} ${a.pctVal}%</span></h4>
-        <div class="rank-score">점수: ${a.score}/48점 | 전체 ${a.pctVal}% 달성</div>
+        <div class="rank-score">점수: ${a.score}/32점 | 전체 ${a.pctVal}% 달성</div>
         <div class="rank-tip">💡 ${getWeakTip(a.id)}</div>
       </div>`;
     rankEl.appendChild(div);
@@ -1285,20 +1327,23 @@ function buildResults(){
       <div class="score-row-top">
         <div class="area-label">${a.icon} ${a.name}</div>
         <span class="risk-badge ${risk.cls}">${risk.label}</span>
-        <div class="score-pct">${a.score}/48</div>
+        <div class="score-pct">${a.score}/32</div>
       </div>
       <div class="area-bar-wrap"><div class="area-bar" style="width:${a.pctVal}%;background:${a.color}"></div></div>
       <div class="sub-bars">
         ${a.dims.map((d,di)=>{
-          const sp=pct(dimScores[di],12);
+          const sp=pct(dimScores[di],8);
           return `<div class="sub-bar-item">
             <div class="sb-label">${d.letter}. ${d.name.slice(0,5)}</div>
             <div class="sb-fill-wrap"><div class="sb-fill" style="width:${sp}%;background:${a.color}80"></div></div>
-            <div style="font-size:9px;color:var(--text-light);text-align:center;margin-top:2px">${dimScores[di]}/12</div>
+            <div style="font-size:9px;color:var(--text-light);text-align:center;margin-top:2px">${dimScores[di]}/8</div>
           </div>`;}).join('')}
       </div>`;
     rowsEl.appendChild(row);
   });
+
+  // 8-area interpretation cards
+  renderAreaInsights(areaScores);
 
   // Action items (top 3 weak areas)
   const actEl=document.getElementById('action-items');
@@ -1395,7 +1440,7 @@ function initKakao(){
 function shareKakao(){
   const url = window.location.href;
   const title = '🌿 건강만다라 만성질환 예방 진단';
-  const desc = '당뇨·고혈압·비만을 유발하는 내 삶의 최약점을 찾아드립니다 | 8영역 96문항';
+  const desc = '당뇨·고혈압·비만을 유발하는 내 삶의 최약점을 찾아드립니다 | 8영역 64문항';
   // 카카오 SDK 미설정 시 링크 공유로 대체
   if(window.Kakao && Kakao.isInitialized()){
     Kakao.Share.sendDefault({
@@ -1494,7 +1539,7 @@ function drawRadar(areaScores){
   // Data polygon
   ctx.beginPath();
   areaScores.forEach((a,i)=>{
-    const ratio=a.score/48;
+    const ratio=a.score/32;
     const x=cx+Math.cos(angles[i])*r*ratio;
     const y=cy+Math.sin(angles[i])*r*ratio;
     if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
@@ -1508,7 +1553,7 @@ function drawRadar(areaScores){
 
   // Dots
   areaScores.forEach((a,i)=>{
-    const ratio=a.score/48;
+    const ratio=a.score/32;
     const x=cx+Math.cos(angles[i])*r*ratio;
     const y=cy+Math.sin(angles[i])*r*ratio;
     ctx.beginPath();
