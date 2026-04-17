@@ -301,10 +301,10 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
 .cta-arrow{color:#fff;opacity:.65;font-size:18px;}
 
 .share-btn{width:100%;padding:16px;border:none;border-radius:var(--radius);
-  background:linear-gradient(135deg,#5A8FB1,#2B5E7E);
-  color:#FFFFFF;font-size:15px;font-weight:700;cursor:pointer;
+  background:linear-gradient(135deg,#FEE500,#F5D800);
+  color:#3C1E1E;font-size:15px;font-weight:700;cursor:pointer;
   display:flex;align-items:center;justify-content:center;gap:8px;
-  box-shadow:0 4px 14px rgba(43,94,126,.28);
+  box-shadow:0 4px 14px rgba(254,229,0,.40);
   font-family:'Noto Sans KR',sans-serif;margin-bottom:10px;transition:all .2s;}
 .share-btn:hover{transform:translateY(-2px);}
 .share-link-btn{width:100%;padding:14px;border:2px solid var(--green-mid);border-radius:var(--radius);
@@ -574,6 +574,16 @@ header h1{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;}
           <div class="cta-arrow">›</div>
         </a>
       </div>
+    </div>
+
+    <div style="margin-top:8px;">
+      <button class="share-btn" onclick="shareKakao()">
+        <span style="font-size:18px;line-height:1;">💬</span>
+        카카오톡으로 공유하기
+      </button>
+      <button class="share-link-btn" onclick="copyLink()">
+        🔗 링크 복사하기
+      </button>
     </div>
 
     <div class="footer-note">
